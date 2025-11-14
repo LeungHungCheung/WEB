@@ -1,0 +1,498 @@
+
+:root {
+    /* Dark theme (default) */
+    --bg-color: #000000;
+    --text-color: #ffffff;
+    --cursor-color: rgba(255, 255, 255, 1);
+    --cursor-transparent: rgba(255, 255, 255, 0.3);
+    --theme-circle-color: #ffffff;
+    --nav-bg: #000000;
+    
+}
+
+[data-theme="light"] {
+    /* Light theme */
+    --bg-color: #ffffff;
+    --text-color: #000000;
+    --cursor-color: rgba(0, 0, 0, 1);
+    --cursor-transparent: rgba(0, 0, 0, 0.3);
+    --theme-circle-color: #000000;
+    --nav-bg: #ffffff;
+}
+
+*{
+cursor: none !important; 
+}
+
+html, body{
+    scroll-behavior: smooth;
+    color: var(--text-color);
+    width: 100%;
+    background-color: var(--bg-color);
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    position: relative;
+}
+
+.horizontal-line {
+    border-bottom: 2.5px solid var(--text-color);
+    width: 100%;
+    margin-top: 100px;
+}
+
+.autoplay-video {
+    position: relative;  
+    width: 100%;
+    height: 100vh;
+}
+
+.video-container video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+    z-index: 1; 
+}
+
+.name-overlay {
+    position: absolute;
+    top: 20px; 
+    left: 2%; 
+    z-index: 2; 
+    text-align: center;
+    font-family: Hw Nuckle, Arial, sans-serif;
+}
+
+.name-overlay h1 {
+    color: #ffffff;
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.custom-cursor {
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    background: var(--cursor-color);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 2147483647;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+    transition: background 0.3s ease;
+    filter: drop-shadow(0 0 3px rgba(0,0,0,0.3));
+}
+
+.custom-cursor.transparent {
+    background: var(--cursor-transparent);
+}
+
+.mute-toggle {
+    position: absolute;
+    background: none;
+    border: none;
+    outline: none;
+    color: white;
+    text-align: center;
+    font-family: Hw Nuckle, Arial, sans-serif;
+    font-size: 1em;
+    cursor: pointer;
+    top: 55px;
+    left: 94%;
+    z-index: 9999;
+    
+}
+
+.time-display {
+    
+    font-family: Hw Nuckle, Arial, sans-serif;
+    font-size: 1em;
+    padding: 8px 12px;
+    
+}
+
+.homeclass{
+    position: absolute;
+    background: none;
+    border: none;
+    outline: none;
+    color: var(--text-color);
+    text-align: center;
+    font-family: Hw Nuckle, Arial, sans-serif;
+    font-size: 1em;
+    cursor: pointer;
+    z-index: 9999;
+    font-size: 16px;
+}
+
+nav {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0; 
+    background: var(--nav-bg);
+    transition: top 0.5s ease-in-out, background-color 0.3s ease;
+    z-index: 2147483646;
+    padding: 15px 20px;
+    
+}
+
+.home-container{
+    margin-bottom: 1.1%;
+    
+
+}
+
+.homeclass{
+    position: absolute;
+    background: none;
+    border: none;
+    outline: none;
+    color: var(--text-color);
+    text-align: center;
+    font-family: Hw Nuckle, Arial, sans-serif;
+    font-size: 1em;
+    cursor: pointer;
+    z-index: 9999;
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+    gap: 7em;
+    margin: 0;
+    padding:0;
+    width: 100%;
+}
+
+nav li a {
+    
+    color: var(--text-color);
+    text-decoration: none;
+    font-family: Hw Nuckle, Arial, sans-serif;
+    transition: color 0.3s ease;
+}
+
+.nav-item:hover {
+    opacity: 0.7;
+}
+
+nav li:first-child {
+    font-weight: bold;
+    padding-right: 5em;
+    
+}
+
+.theme-toggle-container {
+    margin-left: auto;
+}
+
+.theme-toggle {
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--text-color);
+}
+
+.theme-toggle:hover {
+    
+    transform: scale(1.1);
+}
+
+.theme-icon {
+    width: 18px;
+    height: 18px;   
+    border-radius: 50%;
+    background-color: var(--theme-circle-color);
+    transition: background-color 0.3s ease;
+    display: block;
+    
+}
+
+.text-container {
+    margin-top: 5%;
+    margin-left: 15%;
+    justify-content: center;
+    align-items: center;
+    font-family: Hw Nuckle, Arial, sans-serif;
+    flex: 0 1 34em;
+}
+
+.ft{
+    z-index: 9999;
+    padding: 0px 20px;
+    margin-top: 50px;
+    margin-left: 25px;
+    
+    height: 4.8vw;
+    font-family: Hw Nuckle, Arial, sans-serif;
+    font-size: 6vw;
+    font-weight: 700;
+    line-height: 100%;
+}
+
+.work-overall{
+display: flex;
+}
+
+.common{
+    align-items: center;
+    list-style-type: none;
+    margin-left: 3em;
+    gap: 1em;
+    z-index: 9999;
+    padding: 0px 20px;
+    font-family: Hw Nuckle, Arial, sans-serif;
+}
+
+.number{
+    margin-top: 40px;
+    margin-left: 5px;
+    font-size: 0.5em; 
+   word-spacing: 625px ;
+}
+
+.title{
+    font-size: 4em;
+}
+
+.mv-pic{
+    filter: grayscale(100%);
+    transition: filter 0.5s ease;
+    margin-top: 2.5em;  
+    margin-left: 3em;
+    width: 960x;
+    height: 540px;
+}
+.mv-pic:hover{
+    filter: grayscale(0%);
+}
+
+.info{
+    margin-top: 4.7em;
+    font-size: 5em;
+    
+}
+.info-1{
+    margin-top: 3.8em;
+    font-size: 5em;
+    
+}
+.number-1{
+    margin-top: 40px;
+    margin-left: 5px;
+    font-size: 0.5em; 
+    word-spacing: 610px;
+}
+.mv-pic-1{
+    filter: grayscale(100%);
+    transition: filter 0.5s ease;
+    margin-top: 2.5em;  
+    margin-left: 3em;
+    width: 960px;
+    height: 540px;
+}
+.mv-pic-1:hover{
+    filter: grayscale(0%);
+}
+
+.about-info{
+    margin-top: 50px;
+}
+
+.my-pic{
+    display: inline-block;
+    vertical-align: middle;
+    border: 0;
+    box-sizing: border-box;
+    width: 298.5px;
+    height: 399px;
+    margin-left: 41.5%;
+    
+}
+
+.creative{
+    display: block;
+    margin-left: 0.8em;
+    
+    font-family: Hw Nuckle, Arial, sans-serif;
+    font-size: 6vw;
+    font-weight: 700;
+    
+}
+.hk{
+    margin-left: 50%;
+    margin-right: 0.6em;
+    
+    font-family: Hw Nuckle, Arial, sans-serif;
+    font-size: 6vw;
+    font-weight: 700;
+    
+}
+
+.content{
+    display:flex;
+    margin-top: 100px;
+}
+.person{    
+    text-transform: uppercase;
+    font-size: 18px;
+    font-weight: 700;
+    margin-left: 4.5%;
+    margin-top: 15px;
+}
+.dis{
+    font-family: Hw Nuckle, Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    margin-left: 15%;
+}
+
+.dis-1{
+    font-family: Hw Nuckle, Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    margin-left: 15.5%;
+}
+
+.dis-2{
+    font-family: Hw Nuckle, Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    margin-left: 16.9%;
+}
+
+.find{
+    padding-bottom: 10%;
+}
+
+.find-me{
+    margin-top: 100px;
+    text-transform: uppercase;
+    vertical-align: middle;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: Hw Nuckle, Arial, sans-serif;
+    font-size: 6vw;
+    font-weight: 700;
+}
+
+.find-container{
+    display: flex;
+    margin-top: 100px;
+    gap: 46%;
+}
+.sm{
+    position: absolute;
+    background: none;
+    border: none;
+    outline: none;
+    margin-left: 65px;
+    color: var(--text-color);
+    text-align: center;
+    font-family: Hw Nuckle, Arial, sans-serif;
+    font-size: 1em;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    z-index: 9999;
+}
+.job{
+    margin-left: 20px;
+    position: absolute;
+    background: none;
+    border: none;
+    outline: none;
+    color: var(--text-color);
+    text-align: center;
+    font-family: Hw Nuckle, Arial, sans-serif;
+    font-size: 1em;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    z-index: 9999;
+}
+.cv{
+    
+    position: absolute;
+    background: none;
+    border: none;
+    outline: none;
+    color: var(--text-color);
+    text-align: center;
+    font-family: Hw Nuckle, Arial, sans-serif;
+    font-size: 1em;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    z-index: 9999;
+}
+.email{
+    margin-top: 15px;
+    text-align: center;
+}
+
+.cv:hover {
+    opacity: 0.7;
+}
+.job:hover {
+    opacity: 0.7;
+}
+.sm:hover {
+    opacity: 0.7;
+}
+
+.legal{
+    margin-top: 8%;
+    margin-right: 4%;
+    font-size: 16px;
+    text-align: right;
+    font-family: Hw Nuckle, Arial, sans-serif;
+}
+
+.data-pic{
+    border: 5px solid var(--text-color);
+    transition: color 0.3s ease;
+    margin-top: 2.5em;  
+    margin-left: 3em;
+    width: 640px;
+    height: 360px;
+}
+.data-pic:hover{
+    opacity: 0.7;
+}
+.my-data{
+    margin-top: 50px;
+    text-transform: uppercase;
+    vertical-align: middle;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: Hw Nuckle, Arial, sans-serif;
+    font-size: 6vw;
+    font-weight: 700;
+}
+.visual{
+    display:flex;
+}
+
+.data-name{
+    font-family: Hw Nuckle, Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    margin-left: 250px;
+    margin-top: 50px;
+}
+
+
