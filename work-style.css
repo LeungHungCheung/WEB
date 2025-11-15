@@ -1,0 +1,372 @@
+:root {
+    /* Dark theme (default) */
+    --bg-color: #000000;
+    --text-color: #ffffff;
+    --cursor-color: rgba(255, 255, 255, 1);
+    --cursor-transparent: rgba(255, 255, 255, 0.3);
+    --theme-circle-color: #ffffff;
+    --nav-bg: #000000;
+    
+}
+
+[data-theme="light"] {
+    /* Light theme */
+    --bg-color: #ffffff;
+    --text-color: #000000;
+    --cursor-color: rgba(0, 0, 0, 1);
+    --cursor-transparent: rgba(0, 0, 0, 0.3);
+    --theme-circle-color: #000000;
+    --nav-bg: #ffffff;
+}
+
+*{
+cursor: none !important; 
+}
+
+html, body{
+    scroll-behavior: smooth;
+    color: var(--text-color);
+    width: 100%;
+    background-color: var(--bg-color);
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    position: relative;
+}
+
+.custom-cursor {
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    background: var(--cursor-color);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 2147483647;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+    transition: background 0.3s ease;
+    filter: drop-shadow(0 0 3px rgba(0,0,0,0.3));
+}
+
+.custom-cursor.transparent {
+    background: var(--cursor-transparent);
+}
+
+.time-display {
+    
+    font-family: Hw Nuckle, Arial, sans-serif;
+    font-size: 1em;
+    padding: 8px 12px;
+    
+}
+
+.homeclass{
+    position: absolute;
+    background: none;
+    border: none;
+    outline: none;
+    color: var(--text-color);
+    text-align: center;
+    font-family: Hw Nuckle, Arial, sans-serif;
+    font-size: 1em;
+    cursor: pointer;
+    z-index: 9999;
+    font-size: 16px;
+}
+
+nav {
+    position: -webkit-sticky;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0; 
+    background: var(--nav-bg);
+    transition: top 0.5s ease-in-out, background-color 0.3s ease;
+    z-index: 2147483646;
+    padding: 15px 20px;
+    
+}
+
+.home-container{
+    margin-bottom: 1.1%;
+    
+
+}
+.home-container1{
+    margin-bottom: 1.1%;
+    padding-right: 30px;
+
+}
+
+.homeclass{
+    position: absolute;
+    background: none;
+    border: none;
+    outline: none;
+    color: var(--text-color);
+    text-align: center;
+    font-family: Hw Nuckle, Arial, sans-serif;
+    font-size: 1em;
+    cursor: pointer;
+    z-index: 9999;
+}
+
+.nav-item{
+    position: absolute;
+    background: none;
+    border: none;
+    outline: none;
+    color: var(--text-color);
+    text-align: center;
+    font-family: Hw Nuckle, Arial, sans-serif;
+    font-size: 1em;
+    cursor: pointer;
+    z-index: 9999;
+    transition: color 0.3s ease;
+    text-decoration: none;
+}
+
+nav ul {
+    
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+    gap: 7em;
+    margin: 0;
+    padding:0;
+    width: 100%;
+}
+
+
+
+.nav-item:hover {
+    opacity: 0.7;
+}
+
+nav li:first-child {
+    font-weight: bold;
+    padding-right: 5em;
+    
+}
+
+.theme-toggle-container {
+    margin-left: auto;
+}
+
+.theme-toggle {
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--text-color);
+}
+
+.theme-toggle:hover {
+    
+    transform: scale(1.1);
+}
+
+.theme-icon {
+    width: 18px;
+    height: 18px;   
+    border-radius: 50%;
+    background-color: var(--theme-circle-color);
+    transition: background-color 0.3s ease;
+    display: block;
+    
+}
+
+.find{
+    padding-bottom: 10%;
+}
+
+.find-me{
+    margin-top: 100px;
+    text-transform: uppercase;
+    vertical-align: middle;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: Hw Nuckle, Arial, sans-serif;
+    font-size: 6vw;
+    font-weight: 700;
+}
+
+.find-container{
+    display: flex;
+    margin-top: 100px;
+    gap: 46%;
+}
+.sm{
+    position: absolute;
+    background: none;
+    border: none;
+    outline: none;
+    margin-left: 65px;
+    color: var(--text-color);
+    text-align: center;
+    font-family: Hw Nuckle, Arial, sans-serif;
+    font-size: 1em;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    z-index: 9999;
+}
+.job{
+    margin-left: 20px;
+    position: absolute;
+    background: none;
+    border: none;
+    outline: none;
+    color: var(--text-color);
+    text-align: center;
+    font-family: Hw Nuckle, Arial, sans-serif;
+    font-size: 1em;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    z-index: 9999;
+}
+.cv{
+    
+    position: absolute;
+    background: none;
+    border: none;
+    outline: none;
+    color: var(--text-color);
+    text-align: center;
+    font-family: Hw Nuckle, Arial, sans-serif;
+    font-size: 1em;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    z-index: 9999;
+}
+.email{
+    margin-top: 15px;
+    text-align: center;
+}
+
+.cv:hover {
+    opacity: 0.7;
+}
+.job:hover {
+    opacity: 0.7;
+}
+.sm:hover {
+    opacity: 0.7;
+}
+
+.legal{
+    margin-top: 8%;
+    margin-right: 4%;
+    font-size: 16px;
+    text-align: right;
+    font-family: Hw Nuckle, Arial, sans-serif;
+}
+
+.horizontal-line {
+    border-bottom: 2.5px solid var(--text-color);
+    width: 100%;
+    margin-top: 100px;
+}
+
+#next{
+    padding-top: 7%;
+    padding-bottom: 15%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    row-gap:100px  ;
+    column-gap: 5px;
+    justify-content: space-evenly;
+    align-items: center;
+    align-content: center;
+    height: 100%;
+}
+
+.work-pic{
+    height: 540px;
+    width: 865px;
+    background-color: burlywood;
+}
+
+/* --- Filter Button Styles --- */
+
+.filter-container {
+    display: flex;
+    flex-wrap: wrap; /* Allows buttons to wrap on small screens */
+    justify-content: center;
+    gap: 10px;
+    padding-top: 6%;
+}
+
+.filter-btn {
+    background-color: transparent;
+    /* Use your site's main text color, assuming it's white/light */
+    color: var(--text-color, #ffffff); 
+    border: 1px solid var(--text-color, #ffffff);
+    padding: 8px 18px;
+    margin: 5px;
+    border-radius: 20px; /* Makes them rounded */
+    cursor: pointer;
+    font-family: inherit; /* Uses your site's font */
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+    background-color: var(--text-color, #ffffff);
+    color: var(--bg-color, #000000); /* Swaps colors on hover */
+}
+
+/* Style for the active button */
+.filter-btn.active {
+    background-color: var(--text-color, #ffffff);
+    color: var(--bg-color, #000000);
+    font-weight: bold;
+}
+
+/* Class to hide filtered-out items */
+.box.hide {
+    display: none;
+}
+
+/* --- Pagination Styles --- */
+
+.pagination-container {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.page-btn {
+    background: transparent;
+    border: none;
+    /* Greyed out, non-active number */
+    color: #888; 
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0 10px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.page-btn:hover {
+    color: #bbb;
+}
+
+.page-btn.active {
+    /* White, active number */
+    color: var(--text-color, #ffffff); 
+}
+
+/* Class to hide items on other pages */
+.box.hide-page {
+    display: none;
+}

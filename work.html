@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        
+        <title>Hello World</title> 
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://d3js.org/d3.v7.min.js"></script>
+        <script src="https://unpkg.com/force-graph"></script>
+        <script src="https://cdn.plot.ly/plotly-2.24.1.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="https://player.vimeo.com/api/player.js"></script>  
+        <link href="work-style.css" rel="stylesheet" />
+        
+
+    
+    </head>
+    <body>
+          <div class="custom-cursor" id="cursor"></div>
+            <nav>  <ul>
+                <li class="home-container"><button id="home" class="homeclass">MACK.Zzz</button></li>
+                <li class="home-container1"><button id="work" class="nav-item">Work</button></li>
+                <li class="home-container1"><button id="about" class="nav-item">About</button></li>
+                <li class="home-container1"><button id="data" class="nav-item">Data</button></li>
+                <li class="home-container1"><button id="contact" class="nav-item">Contact</button></li>
+                <li class="theme-toggle-container">
+                    <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
+                        <span class="theme-icon"></span>
+                    </button>
+                </li>
+                <li id="current-time" class="time-display"></li>
+            </ul>
+        </nav>
+        
+        
+        <div class="filter-container">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="f">FCY</button>
+            <button class="filter-btn" data-filter="j">JLMusic</button>
+            <button class="filter-btn" data-filter="b">BFS</button>
+            <button class="filter-btn" data-filter="w">ActWork</button>
+            <button class="filter-btn" data-filter="c">Coding</button>
+            <button class="filter-btn" data-filter="g">Game</button>
+            <button class="filter-btn" data-filter="o">Other</button>
+            </div>
+
+
+        <div id="next">
+            <div id="1"class="box" data-category="f j"><img class="work-pic" src="source/1.webp"></div>
+            <div id="2"class="box" data-category="b "><img class="work-pic" src="source/2.webp"></div>
+            <div id="3"class="box" data-category="j "><img class="work-pic" src="source/3.webp"></div>
+            <div id="4"class="box" data-category="f j "><img class="work-pic" src="source/4.webp"></div>
+            <div id="5"class="box" data-category="f j "><img class="work-pic" src="source/5.webp"></div>
+            <div id="6"class="box" data-category="j "><img class="work-pic" src="source/6.webp"></div>
+            <div id="7"class="box" data-category="j "><img class="work-pic" src="source/7.webp"></div>
+            <div id="8"class="box" data-category="f j "><img class="work-pic" src="source/8.webp"></div>
+            <div id="9"class="box" data-category="other "><img class="work-pic" src="source/9.webp"></div>
+            <div id="10"class="box" data-category="w"><img class="work-pic" src="source/10.webp"></div>
+            <div id="11"class="box" data-category="g"><img class="work-pic" src="source/11.webp"></div>
+        </div>
+
+        <div class="pagination-container"></div>
+
+         <div class="horizontal-line"></div>
+        
+        <section id="contact">
+            <div class="find">
+
+                <div class="find-me">find me here!</div>
+
+                <div class="email">hcleung267-c@my.cityu.edu.hk</div>
+
+                <div class="find-container">
+                    <a href="https://www.instagram.com/zzzmac_/" target="_blank">
+                        <button id="ig" class="sm"> 
+                            INSTAGRAM
+                        </button> 
+                    </a>
+                    <a href="https://www.linkedin.com/in/hung-cheung-leung-17aba2369/" target="_blank">
+                        <button id="linkin" class="job"> 
+                            LINKEDIN
+                        </button> 
+                    </a>
+                    <a href="https://drive.google.com/file/d/1-94muytGdNhbHfSoxYwgbIU4Isj3hWJ7/view?usp=sharing" target="_blank">
+                        <button id="resume" class="cv"> 
+                            RESUME
+                        </button> 
+                    </a>
+                </div>
+                <div class="legal">© 2025 All rights reserved</div>
+            </div>
+        </section>
+        <script src="work-code.js"> </script>
+    </body>
+</html>

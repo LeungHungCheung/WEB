@@ -224,10 +224,11 @@ nav li:first-child {
 
 .text-container {
     margin-top: 5%;
-    margin-left: 15%;
+    margin-left: 10%;
     justify-content: center;
     align-items: center;
     font-family: Hw Nuckle, Arial, sans-serif;
+    font-size: 18px;
     flex: 0 1 34em;
 }
 
@@ -291,6 +292,11 @@ display: flex;
     font-size: 5em;
     
 }
+.info-2{
+    margin-top: 4.7em;
+    font-size: 5em;
+    
+}
 .number-1{
     margin-top: 40px;
     margin-left: 5px;
@@ -314,33 +320,20 @@ display: flex;
 }
 
 .my-pic{
+    filter: grayscale(100%);
+    transition: filter 0.5s ease;
+    z-index: 9999;
     display: inline-block;
     vertical-align: middle;
-    border: 0;
     box-sizing: border-box;
     width: 298.5px;
     height: 399px;
-    margin-left: 41.5%;
+    margin-left: 8%;
     
 }
 
-.creative{
-    display: block;
-    margin-left: 0.8em;
-    
-    font-family: Hw Nuckle, Arial, sans-serif;
-    font-size: 6vw;
-    font-weight: 700;
-    
-}
-.hk{
-    margin-left: 50%;
-    margin-right: 0.6em;
-    
-    font-family: Hw Nuckle, Arial, sans-serif;
-    font-size: 6vw;
-    font-weight: 700;
-    
+.my-pic:hover{
+    filter: grayscale(0%);
 }
 
 .content{
@@ -358,21 +351,21 @@ display: flex;
     font-family: Hw Nuckle, Arial, sans-serif;
     font-size: 18px;
     font-weight: 500;
-    margin-left: 15%;
+    margin-left: 20%;
 }
 
 .dis-1{
     font-family: Hw Nuckle, Arial, sans-serif;
     font-size: 18px;
     font-weight: 500;
-    margin-left: 15.5%;
+    margin-left: 18.7%;
 }
 
 .dis-2{
     font-family: Hw Nuckle, Arial, sans-serif;
     font-size: 18px;
     font-weight: 500;
-    margin-left: 16.9%;
+    margin-left: 14.7%;
 }
 
 .find{
@@ -496,3 +489,50 @@ display: flex;
 }
 
 
+.tag{
+    z-index: 0;
+    text-transform: uppercase;
+    font-family: Hw Nuckle, Arial, sans-serif;
+    font-size: 6vw;
+    font-weight: 700;
+     margin-left: 4.5%;
+}
+.more{
+    margin-top: 100px;
+    vertical-align: middle;
+    align-items: center;
+    text-align: center;
+}
+.more-work{
+        
+            margin-left: 39%; /* This margin might push it off-center in a demo, adjust as needed */
+            width: 400px;
+            height: 57px;
+            background-color: var(--text-color); /* Will be black */
+            color: var(--bg-color);             /* Will be white */
+            border: none;
+            font-family: Hw Nuckle, Arial, sans-serif;
+            font-size: 18px; /* Applies to the "More" text */
+            font-weight: 700;
+
+            /* --- NEW / ADJUSTED PROPERTIES FOR LAYOUT --- */
+            display: flex; /* Makes it a flex container */
+            justify-content: space-between; /* Pushes "More" to left, arrow to right */
+            align-items: center; /* Vertically centers both items */
+            padding: 0 20px; /* Adds padding on left and right sides */
+            box-sizing: border-box; /* Ensures padding is included in width/height */
+}
+.more-work:hover{
+    opacity: 0.7;
+}
+.arrow {
+            font-size: 35px; /* Original font size for the arrow */
+            line-height: 1; /* Helps with precise vertical alignment */
+            /* Note: At 45px, the arrow will be significantly larger than the 'More' text (18px).
+                     If you want them to be more visually harmonious, you might reduce this font-size
+                     (e.g., to 24px or 30px) or increase the 'More' text font-size. */
+        }
+.quote{
+    display: flex;
+    margin-top: 100px;
+}

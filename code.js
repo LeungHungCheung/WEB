@@ -1,11 +1,11 @@
-// Add this time function at the top or bottom of your existing code
+
 function updateTime() {
     const now = new Date();
     const timeString = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit',timeZoneName: 'short' });
     document.getElementById('current-time').textContent = timeString;
 }
 
-// Start the clock
+
 updateTime();
 setInterval(updateTime, 1000);
 
@@ -15,7 +15,9 @@ const muteBtn = document.getElementById('muteToggle');
 const themeToggle = document.getElementById('themeToggle');
 const home = document.getElementById('home');
 const vimeoIframe = document.querySelector('.autoplay-video iframe');
+const moreClick = document.getElementById('moree');
 let vimeoPlayer;
+
 
         // Move cursor
         document.addEventListener('mousemove', (e) => {
@@ -37,7 +39,7 @@ let vimeoPlayer;
         
         // Only make transparent when hovering over specific elements
         const hoverElements = document.querySelectorAll(
-            'ul, body, video, h1, .nav, .autoplay-video,.video-container,.name-overlay,.text-container,.work-overall,.common,.content,.find-container,.home-container,.mute-toggle,.time-display,.homeclass,.nav-item,.theme-toggle-container,.theme-toggle,.theme-icon,.ft,.about-info,.find,.find-me,.legal,.title,.info,.info-1,.mv-pic,.mv-pic-1,.my-pic,.creative,.hk,.person,.dis,.dis-1,.dis-2,.sm ,.job,.cv,.email'
+            '.more-work,ul, body, video, h1, .nav, .autoplay-video,.video-container,.name-overlay,.text-container,.work-overall,.common,.content,.find-container,.home-container,.mute-toggle,.time-display,.homeclass,.nav-item,.theme-toggle-container,.theme-toggle,.theme-icon,.ft,.about-info,.find,.find-me,.legal,.title,.info,.info-1,.mv-pic,.mv-pic-1,.my-pic,.creative,.hk,.person,.dis,.dis-1,.dis-2,.sm ,.job,.cv,.email'
         );
         
         hoverElements.forEach(element => {
@@ -122,4 +124,6 @@ home.addEventListener('click',function(){
     });
 });
 
-
+moreClick.addEventListener('click',function(){
+    window.location.href = "work.html";
+});
