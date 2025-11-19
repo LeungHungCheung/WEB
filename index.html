@@ -6,12 +6,10 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="https://d3js.org/d3.v7.min.js"></script>
-        <script src="https://unpkg.com/force-graph"></script>
-        <script src="https://cdn.plot.ly/plotly-2.24.1.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <script src="https://player.vimeo.com/api/player.js"></script>  
         <link href="style.css" rel="stylesheet" />
-        
+        <link href="data.css" rel="stylesheet" />
+
 
     
     </head>
@@ -40,7 +38,7 @@
                 </li>
                 <li><a href="#work" class="nav-item">Work</a></li>
                 <li><a href="#about" class="nav-item">About</a></li>
-                <li><a href="#data" class="nav-item">Data</a></li>
+                <li><a href="#vis-plot" class="nav-item">Data</a></li>
                 <li><a href="#contact" class="nav-item">Contact</a></li>
                 <li class="theme-toggle-container">
                     <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
@@ -56,8 +54,8 @@
             <div class="quote">
                 <img class="my-pic" src="source/me.webp">
                 <div class="text-container">
-                    <h1>ALWAYS EXPLORING</h1>
-                    <p>" Every filmmaker engages with database-narrative problem. " Lev Manovich<br>
+                    <h1 class="always">ALWAYS EXPLORING.</h1>
+                    <p class="every">" Every filmmaker engages with database-narrative problem. " Lev Manovich<br>
                     This quote is the one that inspired me the most, it let me keep trying on <br>
                     something new, to be creative and build a story that no one has done before.
                     </p>
@@ -117,10 +115,6 @@
                 </div>
             </div>
 
-            <div class="more">
-                <button id= "moree"class="more-work">More<div class="arrow">&#8594;</div></button>
-            </div>
-
         </section>
 
         <div class="horizontal-line"></div>
@@ -176,17 +170,23 @@
             </div>
         </section>
 
-        <div class="horizontal-line"></div>
+        <div class="horizontal-line-d"></div>
 
-        <section id="data">
-            <div class="my-data">My Data Visual</div>
-            <div class="data-name">Hierarchical Edge Bundling</div>
-            <div class="visual">
-                <a href="edge.html" target="_blank">
-                <img class="data-pic" src="source/data_1.png">
-                </a>
+        <section id="vis-plot">
+            <h1 class="vs">Visualization</h1>
+            <button id="more-info-btn">more Info</button>
+        </section>
+
+        <div id="detail-page">
+            <div class="detail-content">
+                <button id="detail-close-btn">close</button>
+                <div class="detail-header">
+                    <span class="detail-label">project</span>
+                    <h2 id="detail-title"></h2>
+                </div>
+                <div id="detail-description"></div>
             </div>
-        </section>  
+        </div>
 
         <div class="horizontal-line"></div>
         
@@ -220,7 +220,7 @@
 
       
         <script src="code.js"> </script>
-        
+        <script src="data.js"> </script>
         
         
     </body>

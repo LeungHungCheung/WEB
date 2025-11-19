@@ -1,0 +1,130 @@
+/* Your existing data.css styles */
+#vis-plot {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+    /* Removed background-color to inherit from the main page */
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    position: relative; /* Needed to position the button */
+    overflow: hidden; /* Hide overflow from SVG */
+    background-color: white;
+}
+
+#vis-plot svg {
+    cursor: default;
+    width: 100%;
+    height: 100%;
+}
+
+.tooltip {
+    position: absolute;
+    text-align: center;
+    padding: 8px;
+    font: 12px sans-serif;
+    background: #333;
+    color: #fff;
+    border-radius: 4px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+/* --- NEW STYLES ADDED BELOW --- */
+
+/* This is the "more Info" button that appears on click */
+#more-info-btn {
+    position: absolute; /* Positioned by JavaScript */
+    display: none; /* Hidden by default */
+    background: #111;
+    color: white;
+    border: 1px solid white;
+    padding: 5px 10px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 10;
+    text-transform: uppercase;
+}
+
+#more-info-btn:hover {
+    background: white;
+    color: black;
+}
+
+/* This is the main SPA overlay "page" */
+#detail-page {
+    position: fixed; /* Covers the whole screen */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.9); /* Dark overlay */
+    z-index: 1000; /* On top of everything */
+    display: none; /* Hidden by default */
+    /* MODIFIED: Added flex properties to center the content */
+    display: none;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    padding: 5vw;
+    box-sizing: border-box;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* This styles the "close" button */
+#detail-close-btn {
+    position: absolute;
+    top: 5vw;
+    right: 5vw;
+    background: transparent;
+    border: 1px solid white;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+#detail-close-btn:hover {
+    background: white;
+    color: black;
+}
+
+/* This styles the content box, similar to your image */
+.detail-header {
+    border: 1px solid white;
+    padding: 20px;
+    display: inline-block; /* Makes box fit content */
+    margin-bottom: 20px;
+}
+
+.detail-label {
+    display: block;
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #aaa;
+}
+
+#detail-title {
+    font-size: 36px;
+    margin: 5px 0 0 0;
+    font-weight: bold;
+}
+
+#detail-description {
+    font-size: 18px;
+    line-height: 1.6;
+    max-width: 600px;
+    /* NEW: Allows scrolling WITHIN the detail panel if text is long */
+    max-height: 60vh; /* 60% of the viewport height */
+    overflow-y: auto; /* Show scrollbar only if needed */
+}
+
+/* NEW: This class locks the main page's scroll */
+.overlay-open {
+    overflow: hidden;
+}

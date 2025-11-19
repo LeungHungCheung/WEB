@@ -118,12 +118,10 @@ window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', (e
 });
 
 home.addEventListener('click',function(){
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
+    window.scrollTo(0,0);
+    window.location.href = "data.html";
 });
 
 moreClick.addEventListener('click',function(){
-    window.location.href = "work.html";
+    window.location.href = "data.html";
 });

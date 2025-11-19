@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Profile: Hierarchical Edge Bundling</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        body {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            display: grid;
+            place-items: center;
+            min-height: 100vh;
+            background-color: #ffffff;
+            margin: 0;
+            overflow: hidden; /* Prevent scrollbars */
+        }
+        h1 {
+            font-weight: 300;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            margin: 0;
+            z-index: 10;
+            background: rgba(255,255,255,0.8);
+            padding: 5px;
+        }
+        #vis-plot {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        /* MODIFIED: Removed grab cursor */
+        #vis-plot svg {
+            cursor: default;
+        }
+        /* Tooltip styling */
+        .tooltip {
+            position: absolute;
+            text-align: center;
+            padding: 8px;
+            font: 12px sans-serif;
+            background: #333;
+            color: #fff;
+            border-radius: 4px;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Profile: Art & Technology</h1>
+    <div id="vis-plot"></div>
+
+    <script>
+        // --- 1. YOUR REAL DATA ---
+        // (Data remains unchanged)
+        const data = {
+            name: "Me",
+            children: [
+                {
+                    name: "School",
+                    children: [
+                        { 
+                            name: "Undergraduate (CityU)", 
+                            imports: [
+                                "Me.Artwork.Digital Art", "Me.Artwork.Animation", "Me.Artwork.VFX", "Me.Artwork.Physical Computing",
+                                "Me.Skills.Design", "Me.Skills.UI/UX Design", "Me.Skills.Game Design", "Me.Skills.Programming",
+                                "Me.Tools.Processing", "Me.Projects.Creative Coding", "Me.Projects.Social Engagement Exhibition"
+                            ] 
+                        },
+                        { 
+                            name: "Associate Degree (HKCC)", 
+                            imports: [
+                                "Me.Tools.C++", "Me.Tools.C", "Me.Tools.Arduino", "Me.Skills.Electronic Connection", 
+                                "Me.Skills.Complex Maths", "Me.Skills.Problem Solving", "Me.Artwork.Physical Computing"
+                            ] 
+                        },
+                        { 
+                            name: "Online Course", 
+                            imports: ["Me.Tools.Python", "Me.Tools.DeepSeek", "Me.Skills.AI Use", "Me.Skills.Cloud Computing"] 
+                        }
+                    ]
+                },
+                {
+                    name: "Artwork",
+                    children: [
+                        { name: "Painting", imports: ["Me.Hobbies.Drawing"] },
+                        { name: "Sculpture", imports: ["Me.Hobbies.Crafting"] },
+                        { name: "Digital Art", imports: ["Me.Tools.Photoshop", "Me.Tools.Illustration"] },
+                        { name: "Photography", imports: ["Me.Skills.Basic Camera Operation", "Me.Tools.LightRoom"] },
+                        { name: "Art Photography", imports: ["Me.Skills.Basic Camera Operation", "Me.Tools.Photoshop"] },
+                        { name: "B&W Photography", imports: ["Me.Tools.LightRoom"] },
+                        { name: "Illustration", imports: ["Me.Tools.Illustration", "Me.Tools.Photoshop"] },
+                        { name: "Infographic", imports: ["Me.Tools.Indesgin", "Me.Skills.Data Analysis"] },
+                        { name: "Animation", imports: ["Me.Tools.After Effect", "Me.Tools.Premiere Pro"] },
+                        { name: "VFX", imports: ["Me.Tools.After Effect", "Me.Tools.Davinci Resolve"] },
+                        { name: "Art Game", imports: ["Me.Skills.Game Design", "Me.Tools.C#", "Me.Skills.Programming"] },
+                        { name: "Physical Computing", imports: ["Me.Tools.Arduino", "Me.Skills.Electronic Connection"] }
+                    ]
+                },
+                {
+                    name: "Skills",
+                    children: [
+                        { name: "Programming", imports: ["Me.Tools.VS Code", "Me.Tools.GitHub", "Me.Tools.Python", "Me.Tools.JavaScript"] },
+                        { name: "Design", imports: ["Me.Tools.Figma", "Me.Tools.Photoshop", "Me.Tools.Illustration"] },
+                        { name: "Communication", imports: ["Me.Experience.Volunteer Work", "Me.Languages.English", "Me.Languages.Cantonese"] },
+                        { name: "Project Management", imports: ["Me.Experience.Video Company (MBP)", "Me.Projects.Social Engagement Exhibition"] },
+                        { name: "Data Analysis", imports: ["Me.Tools.Python", "Me.Tools.DeepSeek"] },
+                        { name: "Public Speaking", imports: ["Me.Experience.Student Helper", "Me.Experience.Volunteer Work"] },
+                        { name: "Writing", imports: ["Me.Tools.Indesgin", "Me.Experience.Freelance"] },
+                        { name: "Basic Camera Operation", imports: ["Me.Experience.Video Company (MBP)", "Me.Artwork.Photography"] },
+                        { name: "Problem Solving", imports: ["Me.School.Associate Degree (HKCC)", "Me.Projects.Sustainable Arduino"] },
+                        { name: "Teamwork", imports: ["Me.Experience.Video Company (MBP)", "Me.Experience.Music Company (JLMusic)"] },
+                        { name: "Cloud Computing", imports: ["Me.School.Online Course"] },
+                        { name: "UI/UX Design", imports: ["Me.Tools.Figma", "Me.Projects.Personal Website", "Me.Projects.Art Game"] },
+                        { name: "Leadership", imports: ["Me.Experience.Student Helper", "Me.Projects.Social Engagement Exhibition"] },
+                        { name: "AI Use", imports: ["Me.Tools.DeepSeek", "Me.Tools.Python"] },
+                        { name: "Electronic Connection", imports: ["Me.Tools.Arduino", "Me.Projects.Sustainable Arduino"] },
+                        { name: "Game Design", imports: ["Me.Tools.C#", "Me.Artwork.Art Game"] },
+                        { name: "Floor Plan Drawing", imports: ["Me.Tools.AutoCAD"] },
+                        { name: "Complex Maths", imports: ["Me.School.Associate Degree (HKCC)", "Me.Tools.C++"] }
+                    ]
+                },
+                {
+                    name: "Experience",
+                    children: [
+                        { name: "Video Company (MBP)", imports: ["Me.Tools.Premiere Pro", "Me.Tools.After Effect", "Me.Tools.Davinci Resolve", "Me.Skills.Teamwork"] },
+                        { name: "Music Company (JLMusic)", imports: ["Me.Hobbies.Guitar", "Me.Skills.Teamwork"] },
+                        { name: "Volunteer Work", imports: ["Me.Skills.Public Speaking", "Me.Skills.Communication"] },
+                        { name: "Freelance", imports: ["Me.Skills.Design", "Me.Skills.Writing", "Me.Tools.Figma"] },
+                        { name: "Student Helper", imports: ["Me.Skills.Leadership", "Me.School.Undergraduate (CityU)"] }
+                    ]
+                },
+                {
+                    name: "Tools",
+                    children: [
+                        { name: "Python", imports: ["Me.Skills.Data Analysis", "Me.Skills.AI Use"] },
+                        { name: "C++", imports: ["Me.School.Associate Degree (HKCC)", "Me.Skills.Programming"] },
+                        { name: "C#", imports: ["Me.Artwork.Art Game", "Me.Skills.Game Design"] },
+                        { name: "C", imports: ["Me.School.Associate Degree (HKCC)"] },
+                        { name: "JavaScript", imports: ["Me.Projects.Personal Website", "Me.Projects.Creative Coding"] },
+                        { name: "Figma", imports: ["Me.Skills.UI/UX Design", "Me.Projects.Personal Website"] },
+                        { name: "VS Code", imports: ["Me.Skills.Programming", "Me.Projects.Creative Coding"] },
+                        { name: "GitHub", imports: ["Me.Skills.Programming", "Me.Projects.Personal Website"] },
+                        { name: "After Effect", imports: ["Me.Artwork.Animation", "Me.Artwork.VFX"] },
+                        { name: "LightRoom", imports: ["Me.Artwork.Photography", "Me.Artwork.B&W Photography"] },
+                        { name: "Photoshop", imports: ["Me.Artwork.Digital Art", "Me.Skills.Design"] },
+                        { name: "Indesgin", imports: ["Me.Artwork.Infographic", "Me.Skills.Writing"] },
+                        { name: "Premiere Pro", imports: ["Me.Experience.Video Company (MBP)"] },
+                        { name: "CapCut", imports: ["Me.Hobbies.Photography"] }, // Assumed quick edits
+                        { name: "Davinci Resolve", imports: ["Me.Experience.Video Company (MBP)", "Me.Artwork.VFX"] },
+                        { name: "Illustration", imports: ["Me.Artwork.Illustration", "Me.Skills.Design"] },
+                        { name: "Arduino", imports: ["Me.Projects.Sustainable Arduino", "Me.Skills.Electronic Connection"] },
+                        { name: "DeepSeek", imports: ["Me.Skills.AI Use", "Me.School.Online Course"] },
+                        { name: "AutoCAD", imports: ["Me.Skills.Floor Plan Drawing"] }
+                    ]
+                },
+                {
+                    name: "Projects",
+                    children: [
+                        { name: "Social Engagement Exhibition", imports: ["Me.Skills.Project Management", "Me.Skills.Leadership", "Me.Skills.Communication"] },
+                        { name: "Sustainable Arduino", imports: ["Me.Tools.Arduino", "Me.Skills.Electronic Connection", "Me.Tools.C++"] },
+                        { name: "Creative Coding", imports: ["Me.Tools.JavaScript", "Me.School.Undergraduate (CityU)"] },
+                        { name: "Personal Website", imports: ["Me.Tools.GitHub", "Me.Tools.VS Code", "Me.Skills.UI/UX Design"] },
+                        { name: "Art Game", imports: ["Me.Artwork.Art Game", "Me.Tools.C#"] },
+                        { name: "Photo Series", imports: ["Me.Artwork.Photography", "Me.Tools.LightRoom"] }
+                    ]
+                },
+                {
+                    name: "Hobbies",
+                    children: [
+                        { name: "Reading", imports: [] },
+                        { name: "Gaming", imports: ["Me.Artwork.Art Game"] },
+                        { name: "Hiking", imports: ["Me.Artwork.Photography"] }, // Assumed photography while hiking
+                        { name: "Drawing", imports: ["Me.Artwork.Painting"] },
+                        { name: "Photography", imports: ["Me.Artwork.Photography"] },
+                        { name: "Crafting", imports: ["Me.Artwork.Sculpture"] },
+                        { name: "Workout", imports: [] },
+                        { name: "Guitar", imports: ["Me.Experience.Music Company (JLMusic)"] }
+                    ]
+                },
+                {
+                    name: "Languages",
+                    children: [
+                        { name: "English", imports: ["Me.Skills.Communication"] },
+                        { name: "Cantonese", imports: ["Me.Skills.Communication"] },
+                        { name: "Chinese", imports: ["Me.Skills.Communication"] }
+                    ]
+                }
+            ]
+        };
+
+        // --- 2. HELPER FUNCTIONS ---
+        
+        function id(node) {
+            return `${node.parent ? id(node.parent) + "." : ""}${node.data.name}`;
+        }
+
+        function bilink(root) {
+            const map = new Map(root.leaves().map(d => [id(d), d]));
+            for (const d of root.leaves()) {
+                d.incoming = [];
+                d.outgoing = (d.data.imports || []).map(i => {
+                    const targetNode = map.get(i);
+                    // Log warning if link target is missing (helps debug typos)
+                    if (!targetNode) console.warn(`Missing link target: ${i} from ${d.data.name}`);
+                    return targetNode ? [d, targetNode] : null;
+                }).filter(Boolean);
+            }
+            for (const d of root.leaves()) {
+                for (const o of d.outgoing) {
+                    if (o[1]) o[1].incoming.push(o);
+                }
+            }
+            return root;
+        }
+
+        // --- 3. CONFIG & COLORS ---
+        
+        const colorin = "blue";
+        const colorout = "gold"; // MODIFIED: Changed "red" to "gold"
+        const colornone = "#e8e8e8"; // Slightly darker grey for better visibility
+        const width = 1000; // Initial base width calculation
+        const radius = width / 2;
+
+        let selectedNode = null; // NEW: Track the clicked node
+
+        // --- 4. BUILD CHART ---
+
+        const tree = d3.cluster()
+            .size([2 * Math.PI, radius - 120]); // -120 gives more room for text labels
+
+        const root = tree(bilink(d3.hierarchy(data)
+            .sort((a, b) => d3.ascending(a.height, b.height) || d3.ascending(a.data.name, b.data.name))));
+
+        const svg = d3.select("#vis-plot").append("svg")
+            .attr("width", "100%")
+            .attr("height", "100%")
+            .attr("viewBox", [-width / 2, -width / 2, width, width])
+            .attr("style", "font: 11px sans-serif;")
+            .on("click", resetView); // NEW: Click on background to reset
+
+        // MODIFIED: Added initial transform to center/scale the chart
+        const mainGroup = svg.append("g")
+            .attr("transform", "scale(0.9)");
+
+        const line = d3.lineRadial()
+            .curve(d3.curveBundle.beta(0.85))
+            .radius(d => d.y)
+            .angle(d => d.x);
+
+        const link = mainGroup.append("g")
+            .attr("stroke", colornone)
+            .attr("fill", "none")
+            .selectAll()
+            .data(root.leaves().flatMap(leaf => leaf.outgoing))
+            .join("path")
+            .style("mix-blend-mode", "multiply")
+            .attr("d", ([i, o]) => o ? line(i.path(o)) : null)
+            .each(function(d) { if (d) d.path = this; })
+            ;
+
+        const node = mainGroup.append("g")
+            .selectAll()
+            .data(root.leaves())
+            .join("g")
+            .attr("transform", d => `rotate(${d.x * 180 / Math.PI - 90}) translate(${d.y},0)`)
+            .append("text")
+            .attr("dy", "0.31em")
+            .attr("x", d => d.x < Math.PI ? 6 : -6)
+            .attr("text-anchor", d => d.x < Math.PI ? "start" : "end")
+            .attr("transform", d => d.x >= Math.PI ? "rotate(180)" : null)
+            .text(d => d.data.name)
+            .each(function(d) { d.text = this; })
+            .on("mouseover", overed)
+            .on("mouseout", outed)
+            .on("click", clicked) // NEW: Added click handler
+            .call(text => text.append("title").text(d => 
+                `${d.data.name}\nOutgoing: ${d.outgoing.length}\nIncoming: ${d.incoming.length}`
+            ));
+
+        // --- 5. INTERACTION ---
+
+        // MODIFIED: Only run if no node is selected
+        function overed(event, d) {
+            if (selectedNode) return; // Do nothing if a node is selected
+
+            link.style("mix-blend-mode", null);
+            d3.select(d.text).attr("font-weight", "bold").attr("fill", "black");
+
+            d3.selectAll(d.incoming.map(p => p.path)).attr("stroke", colorin).attr("stroke-width", 2).raise();
+            d3.selectAll(d.incoming.map(([s]) => s.text)).attr("fill", colorin).attr("font-weight", "bold");
+            
+            d3.selectAll(d.outgoing.map(p => p.path)).attr("stroke", colorout).attr("stroke-width", 2).raise();
+            d3.selectAll(d.outgoing.map(([, t]) => t.text)).attr("fill", colorout).attr("font-weight", "bold");
+        }
+
+        // MODIFIED: Only run if no node is selected
+        function outed(event, d) {
+            if (selectedNode) return; // Do nothing if a node is selected
+
+            link.style("mix-blend-mode", "multiply");
+            d3.select(d.text).attr("font-weight", null).attr("fill", null);
+
+            d3.selectAll(d.incoming.map(p => p.path)).attr("stroke", null).attr("stroke-width", null);
+            d3.selectAll(d.incoming.map(([s]) => s.text)).attr("fill", null).attr("font-weight", null);
+            
+            d3.selectAll(d.outgoing.map(p => p.path)).attr("stroke", null).attr("stroke-width", null);
+            d3.selectAll(d.outgoing.map(([, t]) => t.text)).attr("fill", null).attr("font-weight", null);
+        }
+
+        // NEW: Handle clicking on a node
+        function clicked(event, d) {
+            event.stopPropagation(); // Prevent background click from firing
+
+            // If clicking the same node, reset view
+            if (selectedNode === d) {
+                return resetView();
+            }
+
+            selectedNode = d; // Set the selected node
+
+            // Fade everything first
+            link.style("mix-blend-mode", null)
+                .attr("stroke-opacity", 0.1) // Fade links
+                .attr("stroke", colornone)  // Reset color
+                .attr("stroke-width", 1);  // Reset width
+            
+            node.attr("opacity", 0.2); // Fade text
+
+            // Then, highlight the selected node and its connections
+            d3.select(d.text).attr("font-weight", "bold").attr("fill", "black").attr("opacity", 1);
+
+            d3.selectAll(d.incoming.map(p => p.path)).attr("stroke", colorin).attr("stroke-width", 2).attr("stroke-opacity", 1).raise();
+            d3.selectAll(d.incoming.map(([s]) => s.text)).attr("fill", colorin).attr("font-weight", "bold").attr("opacity", 1);
+            
+            d3.selectAll(d.outgoing.map(p => p.path)).attr("stroke", colorout).attr("stroke-width", 2).attr("stroke-opacity", 1).raise();
+            d3.selectAll(d.outgoing.map(([, t]) => t.text)).attr("fill", colorout).attr("font-weight", "bold").attr("opacity", 1);
+        }
+
+        // NEW: Reset all styles
+        function resetView() {
+            selectedNode = null;
+
+            link.style("mix-blend-mode", "multiply")
+                .attr("stroke", null) // Reverts to default 'colornone'
+                .attr("stroke-width", null) // Reverts to default 1px
+                .attr("stroke-opacity", 1); // Reset opacity
+
+            node.attr("fill", null) // Resets text color
+                .attr("font-weight", null) // Resets font weight
+                .attr("opacity", 1); // Reset opacity
+        }
+
+
+        // --- 6. ZOOM ---
+        
+        // MODIFIED: All zoom functionality has been removed.
+        
+
+    </script>
+</body>
+</html>

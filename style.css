@@ -37,10 +37,30 @@ body {
     position: relative;
 }
 
+.always{
+    margin-top: 24% ;
+    z-index: 9999;
+    text-align: left;
+    color: var(--text-color);
+    
+    font-family: Hw Nuckle, Arial, sans-serif;
+    font-size: 4vw;
+    font-weight: 700;
+    line-height: 100%;
+}
+
+
+
 .horizontal-line {
     border-bottom: 2.5px solid var(--text-color);
     width: 100%;
     margin-top: 100px;
+}
+.horizontal-line-d{
+    border-bottom: 2.5px solid var(--text-color);
+    width: 100%;
+    margin-top: 100px;
+    margin-bottom: 100px;
 }
 
 .autoplay-video {
@@ -130,6 +150,7 @@ body {
 }
 
 nav {
+    
     position: -webkit-sticky;
     position: sticky;
     top: 0;
@@ -143,12 +164,13 @@ nav {
 }
 
 .home-container{
+    
     margin-bottom: 1.1%;
     
 
 }
 
-.homeclass{
+.nav-item{
     position: absolute;
     background: none;
     border: none;
@@ -267,7 +289,9 @@ display: flex;
 }
 
 .title{
-    font-size: 4em;
+   font-size: 4em;
+  
+    
 }
 
 .mv-pic{
@@ -284,7 +308,7 @@ display: flex;
 
 .info{
     margin-top: 4.7em;
-    font-size: 5em;
+    font-size: 4em;
     
 }
 .info-1{
@@ -326,8 +350,8 @@ display: flex;
     display: inline-block;
     vertical-align: middle;
     box-sizing: border-box;
-    width: 298.5px;
-    height: 399px;
+    width: 398.5px;
+    height: 499px;
     margin-left: 8%;
     
 }
@@ -498,18 +522,17 @@ display: flex;
      margin-left: 4.5%;
 }
 .more{
-    margin-top: 100px;
-    vertical-align: middle;
-    align-items: center;
-    text-align: center;
+    z-index: 9999;
+    margin-top: 500px;
+   
+    
 }
 .more-work{
-        
-            margin-left: 39%; /* This margin might push it off-center in a demo, adjust as needed */
+            z-index: 9999;
             width: 400px;
             height: 57px;
-            background-color: var(--text-color); /* Will be black */
-            color: var(--bg-color);             /* Will be white */
+            background-color: black; /* Will be black */
+            color: white;             /* Will be white */
             border: none;
             font-family: Hw Nuckle, Arial, sans-serif;
             font-size: 18px; /* Applies to the "More" text */
@@ -535,4 +558,15 @@ display: flex;
 .quote{
     display: flex;
     margin-top: 100px;
+}
+
+.vs{
+    z-index: 9999;
+    text-align: center;
+    color: black;
+    height: 4.8vw;
+    font-family: Hw Nuckle, Arial, sans-serif;
+    font-size: 6vw;
+    font-weight: 700;
+    line-height: 100%;
 }
