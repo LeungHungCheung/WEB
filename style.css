@@ -543,17 +543,16 @@ nav li:first-child { font-weight: bold; padding-right: 5em; }
    ========================================= */
 
 @media screen and (max-width: 1024px) {
-    /* --- GENERAL LAYOUT --- */
-    /* Prevent horizontal overflow */
+    /* --- 1. GENERAL LAYOUT FIXES --- */
     html, body {
-        overflow-x: hidden;
+        overflow-x: hidden; /* Prevent side scrolling */
         width: 100%;
     }
 
-    /* Scale down the huge text */
     .always {
-        font-size: 8vw; /* Larger relative size for mobile */
+        font-size: 8vw;
         margin-top: 40%;
+        padding-right: 20px;
     }
     
     .text-container {
@@ -562,88 +561,111 @@ nav li:first-child { font-weight: bold; padding-right: 5em; }
         flex: auto;
     }
 
-    /* --- NAVIGATION --- */
-    /* Convert wide horizontal nav to a scrollable bar or stacked list */
+    /* --- 2. NAVIGATION BAR FIX --- */
     nav {
-        padding: 10px;
+        padding: 15px 20px;
+        position: sticky;
+        background: var(--nav-bg);
     }
     
     nav ul {
-        gap: 20px; /* Reduce the huge 7em gap */
-        padding-right: 20px;
-        overflow-x: auto; /* Allow horizontal scrolling for nav items */
-        justify-content: flex-start; /* Align left */
-        white-space: nowrap; /* Keep items on one line */
+        display: flex;
+        flex-direction: row;
+        overflow-x: auto;
+        gap: 30px;
+        padding-bottom: 10px;
+        justify-content: flex-start;
+        margin: 0;
+        width: 100%;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
     }
     
-    nav li:first-child {
-        padding-right: 20px; /* Reduce padding */
+    nav ul::-webkit-scrollbar {
+        display: none;
+    }
+    
+    nav li {
+        flex-shrink: 0;
+        padding-right: 0 !important;
     }
 
-    /* --- WORK SECTION --- */
-    /* Stack images and text vertically */
+    .nav-item, .homeclass, nav li:first-child {
+        position: relative;
+        left: auto; right: auto; top: auto; bottom: auto;
+        transform: none;
+        font-size: 16px;
+        width: auto;
+        display: block;
+    }
+
+    /* --- 3. WORK SECTION FIX (IMAGE -> WORDS ORDER) --- */
     .work-overall {
-        flex-direction: column;
-        margin-bottom: 50px;
+        flex-direction: column; /* Stack vertically */
+        margin-bottom: 60px;
     }
 
-    /* Make images responsive (fit screen width) */
+    /* FORCE IMAGE TO TOP */
+    /* By giving the anchor (image) an order of -1, it jumps to the start */
+    .work-overall > a {
+        order: -1; 
+        width: 100%;
+        margin-bottom: 20px; /* Space between image and text */
+        display: block;
+    }
+
     .mv-pic, .mv-pic-1 {
-        width: 100% !important; /* Override fixed 960px */
+        width: 100% !important; /* Force image to fit screen */
         height: auto;
         margin-left: 0;
         margin-top: 0;
     }
 
-    /* Adjust text positioning */
+    /* FORCE TEXT TO BOTTOM */
+    /* By giving text containers an order of 1, they stay below the image */
     .common0, .common1, .common-1 {
+        order: 1;
         margin-left: 0;
-        padding: 20px;
+        padding: 0 20px;
         width: 100%;
         text-align: left;
-        align-items: flex-start;
     }
 
     .title, .title-1 {
-        font-size: 2.5em; /* Smaller title */
-        margin-top: 20px;
+        font-size: 8vw;
+        margin-top: 10px;
         text-align: left;
     }
 
     .help, .help-1 {
-        margin-top: 20px;
-        flex-direction: column; /* Stack firm and role */
-        gap: 10px;
+        margin-top: 15px;
+        flex-direction: column;
+        gap: 5px;
     }
 
-    .firm, .firm-1, .firm-2 {
+    .firm, .firm-1, .firm-2, .info-1 {
         padding-right: 0;
         margin-top: 0;
-    }
-    
-    .info-1 {
         margin-left: 0;
+    }
+
+    .number, .number-1 {
         margin-top: 0;
+        word-spacing: normal;
     }
 
-    .number-1 {
-        word-spacing: normal; /* Reset huge spacing */
-    }
-
-    /* --- ABOUT SECTION --- */
+    /* --- 4. ABOUT SECTION FIX --- */
     .content {
         flex-direction: column;
         margin-top: 50px;
     }
 
-    .person {
+    .person, .dis, .dis-1, .dis-2 {
         margin-left: 5%;
+        width: 90%;
     }
-
-    .dis, .dis-1, .dis-2 {
-        margin-left: 5%;
-        width: 90%; /* Use full width */
-    }
+    
+    .person { margin-bottom: 10px; }
 
     .my-pic {
         width: 100%;
@@ -652,52 +674,78 @@ nav li:first-child { font-weight: bold; padding-right: 5em; }
         margin-bottom: 20px;
     }
     
-    .quote {
-        flex-direction: column;
-    }
+    .quote { flex-direction: column; }
 
     .tag {
-        font-size: 10vw; /* Make tags readable on mobile */
+        font-size: 10vw;
+        margin-left: 5%;
     }
 
-    /* --- CONTACT SECTION --- */
+    /* --- 5. FIND ME / CONTACT IMAGE FIX --- */
+    .find { margin-top: 50px; }
+
     .find-container {
-        flex-direction: column; /* Stack buttons */
-        gap: 30px;
-        margin-top: 50px;
+        flex-direction: column;
+        gap: 20px;
+        margin-top: 30px;
         align-items: center;
+        position: relative;
     }
 
-    /* Reset absolute positioning for buttons on mobile so they stack */
     .sm, .job, .cv {
         position: relative;
         margin-left: 0;
         width: 100%;
         text-align: center;
+        padding: 15px;
+        border: 1px solid var(--text-color);
     }
 
-    /* --- DETAIL POPUP RESPONSIVENESS --- */
+    .stack {
+        width: 100%;
+        padding: 0 20px;
+    }
+
+    #pic-dark, #pic-white {
+        width: 100%;
+        scale: 1;
+        margin: 0;
+    }
+
+    .find-me-pic {
+        width: 100%;
+        height: auto;
+        max-width: 350px;
+    }
+
+    .email {
+        margin-top: 30px;
+        font-size: 14px;
+        word-break: break-all;
+    }
+
+    /* --- 6. DETAIL POPUP FIX --- */
     .detail-content {
-        width: 95%; /* Almost full width */
+        width: 95%;
         padding: 20px;
-        max-height: 80vh;
+        max-height: 85vh;
     }
 
-    /* Stack the Header and Visit button on mobile */
     .detail-top-section {
         flex-direction: column;
-        gap: 15px;
-        align-items: flex-start; /* Align left */
+        gap: 20px;
+        align-items: flex-start;
     }
 
     .detail-header {
         width: 100%;
-        padding: 15px;
+        padding: 20px;
     }
 
     #detail-visit-btn {
-        width: 100%; /* Full width button on mobile */
+        width: 100%;
         padding: 15px 0;
+        margin-bottom: 20px;
         font-size: 1.2em;
     }
 
@@ -705,12 +753,11 @@ nav li:first-child { font-weight: bold; padding-right: 5em; }
         font-size: 24px;
     }
 
-    /* Move close button to be visible */
     #detail-close-btn {
-        top: 10px;
-        right: 10px;
-        padding: 8px 15px;
+        top: 15px;
+        right: 15px;
+        padding: 8px 20px;
         font-size: 12px;
-        background-color: rgba(0,0,0,0.5); /* Add background to make it readable */
+        background-color: rgba(0,0,0,0.8);
     }
 }
