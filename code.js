@@ -55,6 +55,7 @@ let vimeoPlayer;
     if (vimeoIframe && muteBtn) {
     // Initialize the Vimeo Player
     vimeoPlayer = new Vimeo.Player(vimeoIframe);
+    
 
     // Set initial button text based on the iframe's `muted=1` parameter
     // Since `muted=1` is in the URL, it starts muted.
@@ -117,11 +118,35 @@ window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', (e
     }
 });
 
-home.addEventListener('click',function(){
-    window.scrollTo(0,0);
-    window.location.href = "data.html";
+home.addEventListener('click', function(){
+    // Smooth scroll to top
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+    
+    // Navigate to index.html after scroll completes (optional)
+    setTimeout(() => {
+        window.location.href = "index.html";
+    },500); // Adjust timing to match scroll duration
 });
 
-moreClick.addEventListener('click',function(){
-    window.location.href = "data.html";
-});
+// Detect touch device
+function isTouchDevice() {
+    return (('ontouchstart' in window) ||
+       (navigator.maxTouchPoints > 0) ||
+       (navigator.msMaxTouchPoints > 0));
+}
+
+// If it's a phone/tablet, hide the custom cursor and revert to default behavior
+if (isTouchDevice()) {
+    const cursor = document.getElementById('cursor');
+    if (cursor) cursor.style.display = 'none';
+    
+    // Reset cursor styles for all elements to auto
+    document.body.style.cursor = 'auto';
+    const allElements = document.querySelectorAll('*');
+    allElements.forEach(el => {
+        el.style.cursor = 'auto';
+    });
+}

@@ -1,4 +1,3 @@
-
 :root {
     /* Dark theme (default) */
     --bg-color: #000000;
@@ -7,7 +6,10 @@
     --cursor-transparent: rgba(255, 255, 255, 0.3);
     --theme-circle-color: #ffffff;
     --nav-bg: #000000;
-    
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
 }
 
 [data-theme="light"] {
@@ -20,11 +22,11 @@
     --nav-bg: #ffffff;
 }
 
-*{
-cursor: none !important; 
+* {
+    cursor: none !important; 
 }
 
-html, body{
+html, body {
     scroll-behavior: smooth;
     color: var(--text-color);
     width: 100%;
@@ -37,46 +39,36 @@ body {
     position: relative;
 }
 
-.always{
-    margin-top: 24% ;
+/* --- MAIN TYPOGRAPHY & LAYOUT --- */
+.always {
+    margin-top: 24%;
     z-index: 9999;
     text-align: left;
     color: var(--text-color);
-    
     font-family: Hw Nuckle, Arial, sans-serif;
     font-size: 4vw;
     font-weight: 700;
     line-height: 100%;
 }
 
-
-
-.horizontal-line {
+.horizontal-line, .horizontal-line-d {
     border-bottom: 2.5px solid var(--text-color);
     width: 100%;
     margin-top: 100px;
 }
-.horizontal-line-d{
-    border-bottom: 2.5px solid var(--text-color);
-    width: 100%;
-    margin-top: 100px;
+.horizontal-line-d {
     margin-bottom: 100px;
 }
 
+/* --- VIDEO SECTION --- */
 .autoplay-video {
     position: relative;  
     width: 100%;
     height: 100vh;
 }
-
-.video-container video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.autoplay-video iframe {
     pointer-events: none;
-    z-index: 1; 
 }
-
 .name-overlay {
     position: absolute;
     top: 20px; 
@@ -85,13 +77,13 @@ body {
     text-align: center;
     font-family: Hw Nuckle, Arial, sans-serif;
 }
-
 .name-overlay h1 {
     color: #ffffff;
     font-size: 2em;
     margin-bottom: 20px;
 }
 
+/* --- CURSOR & UI --- */
 .custom-cursor {
     position: fixed;
     width: 20px;
@@ -106,11 +98,9 @@ body {
     transition: background 0.3s ease;
     filter: drop-shadow(0 0 3px rgba(0,0,0,0.3));
 }
-
 .custom-cursor.transparent {
     background: var(--cursor-transparent);
 }
-
 .mute-toggle {
     position: absolute;
     background: none;
@@ -124,18 +114,10 @@ body {
     top: 55px;
     left: 94%;
     z-index: 9999;
-    
 }
 
-.time-display {
-    
-    font-family: Hw Nuckle, Arial, sans-serif;
-    font-size: 1em;
-    padding: 8px 12px;
-    
-}
-
-.homeclass{
+/* --- NAVIGATION --- */
+.homeclass, .nav-item, .time-display {
     position: absolute;
     background: none;
     border: none;
@@ -146,11 +128,11 @@ body {
     font-size: 1em;
     cursor: pointer;
     z-index: 9999;
-    font-size: 16px;
 }
+.homeclass { font-size: 16px; }
+.time-display { padding: 8px 12px; position: static; } /* Reset absolute for time */
 
 nav {
-    
     position: -webkit-sticky;
     position: sticky;
     top: 0;
@@ -160,29 +142,8 @@ nav {
     transition: top 0.5s ease-in-out, background-color 0.3s ease;
     z-index: 2147483646;
     padding: 15px 20px;
-    
 }
-
-.home-container{
-    
-    margin-bottom: 1.1%;
-    
-
-}
-
-.nav-item{
-    position: absolute;
-    background: none;
-    border: none;
-    outline: none;
-    color: var(--text-color);
-    text-align: center;
-    font-family: Hw Nuckle, Arial, sans-serif;
-    font-size: 1em;
-    cursor: pointer;
-    z-index: 9999;
-}
-
+.home-container { margin-bottom: 1.1%; }
 nav ul {
     display: flex;
     align-items: center;
@@ -192,29 +153,15 @@ nav ul {
     padding:0;
     width: 100%;
 }
-
 nav li a {
-    
     color: var(--text-color);
     text-decoration: none;
     font-family: Hw Nuckle, Arial, sans-serif;
     transition: color 0.3s ease;
 }
-
-.nav-item:hover {
-    opacity: 0.7;
-}
-
-nav li:first-child {
-    font-weight: bold;
-    padding-right: 5em;
-    
-}
-
-.theme-toggle-container {
-    margin-left: auto;
-}
-
+.nav-item:hover { opacity: 0.7; }
+nav li:first-child { font-weight: bold; padding-right: 5em; }
+.theme-toggle-container { margin-left: auto; }
 .theme-toggle {
     background: none;
     border: none;
@@ -228,12 +175,7 @@ nav li:first-child {
     justify-content: center;
     border: 1px solid var(--text-color);
 }
-
-.theme-toggle:hover {
-    
-    transform: scale(1.1);
-}
-
+.theme-toggle:hover { transform: scale(1.1); }
 .theme-icon {
     width: 18px;
     height: 18px;   
@@ -241,9 +183,9 @@ nav li:first-child {
     background-color: var(--theme-circle-color);
     transition: background-color 0.3s ease;
     display: block;
-    
 }
 
+/* --- QUOTE & ABOUT --- */
 .text-container {
     margin-top: 5%;
     margin-left: 10%;
@@ -253,97 +195,8 @@ nav li:first-child {
     font-size: 18px;
     flex: 0 1 34em;
 }
-
-.ft{
-    z-index: 9999;
-    padding: 0px 20px;
-    margin-top: 50px;
-    margin-left: 25px;
-    
-    height: 4.8vw;
-    font-family: Hw Nuckle, Arial, sans-serif;
-    font-size: 6vw;
-    font-weight: 700;
-    line-height: 100%;
-}
-
-.work-overall{
-display: flex;
-}
-
-.common{
-    align-items: center;
-    list-style-type: none;
-    margin-left: 3em;
-    gap: 1em;
-    z-index: 9999;
-    padding: 0px 20px;
-    font-family: Hw Nuckle, Arial, sans-serif;
-}
-
-.number{
-    margin-top: 40px;
-    margin-left: 5px;
-    font-size: 0.5em; 
-   word-spacing: 625px ;
-}
-
-.title{
-   font-size: 4em;
-  
-    
-}
-
-.mv-pic{
-    filter: grayscale(100%);
-    transition: filter 0.5s ease;
-    margin-top: 2.5em;  
-    margin-left: 3em;
-    width: 960x;
-    height: 540px;
-}
-.mv-pic:hover{
-    filter: grayscale(0%);
-}
-
-.info{
-    margin-top: 4.7em;
-    font-size: 4em;
-    
-}
-.info-1{
-    margin-top: 3.8em;
-    font-size: 5em;
-    
-}
-.info-2{
-    margin-top: 4.7em;
-    font-size: 5em;
-    
-}
-.number-1{
-    margin-top: 40px;
-    margin-left: 5px;
-    font-size: 0.5em; 
-    word-spacing: 610px;
-}
-.mv-pic-1{
-    filter: grayscale(100%);
-    transition: filter 0.5s ease;
-    margin-top: 2.5em;  
-    margin-left: 3em;
-    width: 960px;
-    height: 540px;
-}
-.mv-pic-1:hover{
-    filter: grayscale(0%);
-}
-
-.about-info{
-    margin-top: 50px;
-}
-
-.my-pic{
+.quote { display: flex; margin-top: 100px; }
+.my-pic {
     filter: grayscale(100%);
     transition: filter 0.5s ease;
     z-index: 9999;
@@ -353,96 +206,314 @@ display: flex;
     width: 398.5px;
     height: 499px;
     margin-left: 8%;
-    
+}
+.my-pic:hover { filter: grayscale(0%); }
+
+.about-info { margin-top: 50px; }
+.tag {
+    z-index: 0;
+    text-transform: uppercase;
+    font-family: Hw Nuckle, Arial, sans-serif;
+    font-size: 6vw;
+    font-weight: 700;
+    margin-left: 4.5%;
+}
+.tag span {
+    display: block; 
+    margin-bottom: 5px; 
+    animation: text-appear both;
+    animation-timeline: view();
+    animation-range: entry 10% cover 100vh;
+}
+@keyframes text-appear {
+    from { opacity: 0; transform: translateY(100px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-.my-pic:hover{
-    filter: grayscale(0%);
-}
-
-.content{
-    display:flex;
-    margin-top: 100px;
-}
-.person{    
+.content { display: flex; margin-top: 100px; }
+.person {    
     text-transform: uppercase;
     font-size: 18px;
     font-weight: 700;
     margin-left: 4.5%;
     margin-top: 15px;
 }
-.dis{
+.dis, .dis-1, .dis-2 {
     font-family: Hw Nuckle, Arial, sans-serif;
     font-size: 18px;
     font-weight: 500;
-    margin-left: 20%;
 }
+.dis { margin-left: 20%; }
+.dis-1 { margin-left: 18.7%; }
+.dis-2 { margin-left: 14.7%; }
 
-.dis-1{
+/* --- WORK SECTION --- */
+.ft {
+    margin-top: 50px;
+    z-index: 9999;
+    margin-left: 45px;
+    color: var(--text-color);
+    height: 4.8vw;
     font-family: Hw Nuckle, Arial, sans-serif;
-    font-size: 18px;
-    font-weight: 500;
-    margin-left: 18.7%;
+    font-size: 5vw;
+    font-weight: 700;
+    line-height: 100%;
 }
-
-.dis-2{
+.work-overall { display: flex; }
+.common0, .common1, .common-1 {
+    align-items: center;
+    list-style-type: none;
+    z-index: 9999;
     font-family: Hw Nuckle, Arial, sans-serif;
-    font-size: 18px;
-    font-weight: 500;
-    margin-left: 14.7%;
+}
+.common0 { margin-left: 3em; gap: 1em; padding: 0px 20px; }
+.common1, .common-1 { margin-left: 45px; gap: 1em; }
+.number, .number-1 { margin-top: 40px; margin-left: 5px; font-size: 1em; }
+.number-1 { word-spacing: 610px; }
+.title, .title-1 { font-size: 4em; text-align: center; }
+.title { margin-top: 215px; }
+.title-1 { margin-top: 190px; }
+.help, .help-1 { display: flex; font-size: 1em; }
+.help { margin-top: 220px; }
+.help-1 { margin-top: 165px; }
+.firm, .firm-2 { padding-right: 510px; }
+.firm-1 { padding-right: 575px; }
+.firm-2 { margin-top: 50px; }
+.info-1 { margin-top: 50px; margin-left: 23px; }
+.mv-pic, .mv-pic-1 {
+    filter: grayscale(100%);
+    transition: filter 0.5s ease;
+    margin-top: 2.5em;  
+    margin-left: 3em;
+    height: 540px;
+}
+.mv-pic { width: 960px; } /* Fixed typo "960x" */
+.mv-pic-1 { width: 960px; }
+.mv-pic:hover, .mv-pic-1:hover { filter: grayscale(0%); }
+
+
+/* --- VISUALIZATION SECTION --- */
+#vis-plot {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    position: relative; 
+    overflow: hidden; 
+    background-color: white; /* Viz background */
+}
+#vis-plot svg { cursor: default; width: 100%; height: 100%; }
+#vis-plot svg text { font-weight: bold !important; font-size: 12px; }
+
+.vs {
+    z-index: 9999;
+    text-align: center;
+    color: black;
+    height: 4.8vw;
+    font-family: Hw Nuckle, Arial, sans-serif;
+    font-size: 5vw;
+    font-weight: 700;
+    line-height: 100%;
 }
 
-.find{
-    padding-bottom: 10%;
-}
-
-.find-me{
-    margin-top: 100px;
+/* More Info Button on Viz */
+#more-info-btn {
+    position: absolute; 
+    display: none; 
+    background: #111;
+    color: white;
+    border: 1px solid white;
+    padding: 5px 10px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 10;
     text-transform: uppercase;
-    vertical-align: middle;
+}
+#more-info-btn:hover { background: white; color: black; }
+
+
+/* --- DETAIL PAGE OVERLAY (POPUP) --- */
+#detail-page {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.9); 
+    z-index: 100000; 
+    display: none; 
     justify-content: center;
     align-items: center;
-    text-align: center;
-    font-family: Hw Nuckle, Arial, sans-serif;
-    font-size: 6vw;
-    font-weight: 700;
+    color: white;
+    padding: 5vw;
+    box-sizing: border-box;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
+.overlay-open { overflow: hidden; }
 
-.find-container{
-    display: flex;
-    margin-top: 100px;
-    gap: 46%;
-}
-.sm{
-    position: absolute;
-    background: none;
-    border: none;
-    outline: none;
-    margin-left: 65px;
-    color: var(--text-color);
-    text-align: center;
-    font-family: Hw Nuckle, Arial, sans-serif;
-    font-size: 1em;
-    cursor: pointer;
-    transition: color 0.3s ease;
-    z-index: 9999;
-}
-.job{
-    margin-left: 20px;
-    position: absolute;
-    background: none;
-    border: none;
-    outline: none;
-    color: var(--text-color);
-    text-align: center;
-    font-family: Hw Nuckle, Arial, sans-serif;
-    font-size: 1em;
-    cursor: pointer;
-    transition: color 0.3s ease;
-    z-index: 9999;
-}
-.cv{
+.detail-content {
     
+     
+    padding: 40px;
+    width: 600px;
+    max-width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative; /* Context for absolute positioning */
+}
+
+/* Close Button */
+#detail-close-btn {
+    position: absolute;
+    top: 5vw;
+    right: 5vw; /* Positioned relative to screen, not content box */
+    background: transparent;
+    border: 1px solid white;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: bold;
+}
+#detail-close-btn:hover { background: white; color: black; }
+
+/* --- SIDE-BY-SIDE HEADER LAYOUT --- */
+.detail-top-section {
+    display: flex;
+    gap: 20px; /* Gap between title box and visit button */
+    margin-bottom: 20px;
+}
+
+/* Box 1: Title Box */
+.detail-header {
+    border: 1px solid white;
+    padding: 20px;
+    flex-grow: 1; /* Takes available space */
+}
+.detail-label {
+    display: block;
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #aaa;
+    font-weight: bold;
+}
+#detail-title {
+    font-size: 36px;
+    margin: 5px 0 0 0;
+    font-weight: bold;
+}
+
+/* Box 2: Visit Button (Box style) */
+#detail-visit-btn {
+    display: none; /* JS toggles this */
+    
+    /* Box Look */
+    border: 1px solid white;
+    padding: 0px 30px;
+    
+    /* Center Text */
+    align-items: center;
+    justify-content: center;
+    
+    background-color: transparent;
+    color: white;
+    text-decoration: none;
+    font-family: Hw Nuckle, Arial, sans-serif;
+    font-size: 1.2em;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    flex-shrink: 0; /* Don't shrink */
+}
+/* Force flex when visible to center text */
+#detail-visit-btn[style*="display: block"] {
+    display: flex !important;
+}
+#detail-visit-btn:hover { background-color: white; color: black; }
+
+
+/* Detail Content Body */
+.detail-img {
+    width: 100%;
+    max-height: 540px;
+    object-fit: cover;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    display: none;
+}
+#detail-description {
+    font-size: 18px;
+    line-height: 1.6;
+    max-width: 600px;
+    max-height: 60vh;
+    overflow-y: auto;
+    font-weight: bold; 
+}
+
+/* Relations Section */
+#detail-relations-wrapper {
+    margin-top: 40px;
+    width: 100%;
+}
+.relations-header {
+    font-family: Hw Nuckle, Arial, sans-serif;
+    font-size: 1.2em;
+    font-weight: 700;
+    border-bottom: 2px solid white;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    text-transform: capitalize;
+}
+.relation-btn {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 15px;
+    background-color: transparent;
+    border: 1px solid white;
+    color: white;
+    text-align: left;
+    cursor: pointer;
+    font-family: Hw Nuckle, Arial, sans-serif;
+    font-size: 1em;
+    transition: all 0.3s ease;
+}
+.relation-btn:hover { background-color: white; color: black; }
+.relation-btn span {
+    display: block;
+    font-size: 0.7em;
+    opacity: 0.7;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+
+/* --- CONTACT SECTION --- */
+.find {
+    text-align: center;
+    margin-top: 10%;
+    margin-bottom: 5%;
+}
+.stack { display: grid; place-items: center; }
+#pic-dark, #pic-white {
+    grid-area: 1 / 1; 
+    opacity: 0;       
+    transition: opacity 0.6s ease-in-out; 
+    width: 100%;      
+    scale: 0.7;
+    display: flex;    
+    justify-content: center;
+}
+[data-theme="light"] #pic-dark { opacity: 1; z-index: 2; }
+[data-theme="dark"] #pic-white { opacity: 1; z-index: 2; }
+.find-container { display: flex; margin-top: 100px; gap: 46%; }
+.sm, .job, .cv {
     position: absolute;
     background: none;
     border: none;
@@ -455,22 +526,11 @@ display: flex;
     transition: color 0.3s ease;
     z-index: 9999;
 }
-.email{
-    margin-top: 15px;
-    text-align: center;
-}
-
-.cv:hover {
-    opacity: 0.7;
-}
-.job:hover {
-    opacity: 0.7;
-}
-.sm:hover {
-    opacity: 0.7;
-}
-
-.legal{
+.sm { margin-left: 65px; }
+.job { margin-left: 20px; }
+.cv:hover, .job:hover, .sm:hover { opacity: 0.7; }
+.email { margin-top: 100px; text-align: center; }
+.legal {
     margin-top: 8%;
     margin-right: 4%;
     font-size: 16px;
@@ -478,95 +538,179 @@ display: flex;
     font-family: Hw Nuckle, Arial, sans-serif;
 }
 
-.data-pic{
-    border: 5px solid var(--text-color);
-    transition: color 0.3s ease;
-    margin-top: 2.5em;  
-    margin-left: 3em;
-    width: 640px;
-    height: 360px;
-}
-.data-pic:hover{
-    opacity: 0.7;
-}
-.my-data{
-    margin-top: 50px;
-    text-transform: uppercase;
-    vertical-align: middle;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    font-family: Hw Nuckle, Arial, sans-serif;
-    font-size: 6vw;
-    font-weight: 700;
-}
-.visual{
-    display:flex;
-}
+/* =========================================
+   RESPONSIVE DESIGN (TABLET & MOBILE)
+   ========================================= */
 
-.data-name{
-    font-family: Hw Nuckle, Arial, sans-serif;
-    font-size: 18px;
-    font-weight: 700;
-    margin-left: 250px;
-    margin-top: 50px;
-}
+@media screen and (max-width: 1024px) {
+    /* --- GENERAL LAYOUT --- */
+    /* Prevent horizontal overflow */
+    html, body {
+        overflow-x: hidden;
+        width: 100%;
+    }
 
-
-.tag{
-    z-index: 0;
-    text-transform: uppercase;
-    font-family: Hw Nuckle, Arial, sans-serif;
-    font-size: 6vw;
-    font-weight: 700;
-     margin-left: 4.5%;
-}
-.more{
-    z-index: 9999;
-    margin-top: 500px;
-   
+    /* Scale down the huge text */
+    .always {
+        font-size: 8vw; /* Larger relative size for mobile */
+        margin-top: 40%;
+    }
     
-}
-.more-work{
-            z-index: 9999;
-            width: 400px;
-            height: 57px;
-            background-color: black; /* Will be black */
-            color: white;             /* Will be white */
-            border: none;
-            font-family: Hw Nuckle, Arial, sans-serif;
-            font-size: 18px; /* Applies to the "More" text */
-            font-weight: 700;
+    .text-container {
+        margin-left: 5%;
+        width: 90%;
+        flex: auto;
+    }
 
-            /* --- NEW / ADJUSTED PROPERTIES FOR LAYOUT --- */
-            display: flex; /* Makes it a flex container */
-            justify-content: space-between; /* Pushes "More" to left, arrow to right */
-            align-items: center; /* Vertically centers both items */
-            padding: 0 20px; /* Adds padding on left and right sides */
-            box-sizing: border-box; /* Ensures padding is included in width/height */
-}
-.more-work:hover{
-    opacity: 0.7;
-}
-.arrow {
-            font-size: 35px; /* Original font size for the arrow */
-            line-height: 1; /* Helps with precise vertical alignment */
-            /* Note: At 45px, the arrow will be significantly larger than the 'More' text (18px).
-                     If you want them to be more visually harmonious, you might reduce this font-size
-                     (e.g., to 24px or 30px) or increase the 'More' text font-size. */
-        }
-.quote{
-    display: flex;
-    margin-top: 100px;
-}
+    /* --- NAVIGATION --- */
+    /* Convert wide horizontal nav to a scrollable bar or stacked list */
+    nav {
+        padding: 10px;
+    }
+    
+    nav ul {
+        gap: 20px; /* Reduce the huge 7em gap */
+        padding-right: 20px;
+        overflow-x: auto; /* Allow horizontal scrolling for nav items */
+        justify-content: flex-start; /* Align left */
+        white-space: nowrap; /* Keep items on one line */
+    }
+    
+    nav li:first-child {
+        padding-right: 20px; /* Reduce padding */
+    }
 
-.vs{
-    z-index: 9999;
-    text-align: center;
-    color: black;
-    height: 4.8vw;
-    font-family: Hw Nuckle, Arial, sans-serif;
-    font-size: 6vw;
-    font-weight: 700;
-    line-height: 100%;
+    /* --- WORK SECTION --- */
+    /* Stack images and text vertically */
+    .work-overall {
+        flex-direction: column;
+        margin-bottom: 50px;
+    }
+
+    /* Make images responsive (fit screen width) */
+    .mv-pic, .mv-pic-1 {
+        width: 100% !important; /* Override fixed 960px */
+        height: auto;
+        margin-left: 0;
+        margin-top: 0;
+    }
+
+    /* Adjust text positioning */
+    .common0, .common1, .common-1 {
+        margin-left: 0;
+        padding: 20px;
+        width: 100%;
+        text-align: left;
+        align-items: flex-start;
+    }
+
+    .title, .title-1 {
+        font-size: 2.5em; /* Smaller title */
+        margin-top: 20px;
+        text-align: left;
+    }
+
+    .help, .help-1 {
+        margin-top: 20px;
+        flex-direction: column; /* Stack firm and role */
+        gap: 10px;
+    }
+
+    .firm, .firm-1, .firm-2 {
+        padding-right: 0;
+        margin-top: 0;
+    }
+    
+    .info-1 {
+        margin-left: 0;
+        margin-top: 0;
+    }
+
+    .number-1 {
+        word-spacing: normal; /* Reset huge spacing */
+    }
+
+    /* --- ABOUT SECTION --- */
+    .content {
+        flex-direction: column;
+        margin-top: 50px;
+    }
+
+    .person {
+        margin-left: 5%;
+    }
+
+    .dis, .dis-1, .dis-2 {
+        margin-left: 5%;
+        width: 90%; /* Use full width */
+    }
+
+    .my-pic {
+        width: 100%;
+        height: auto;
+        margin-left: 0;
+        margin-bottom: 20px;
+    }
+    
+    .quote {
+        flex-direction: column;
+    }
+
+    .tag {
+        font-size: 10vw; /* Make tags readable on mobile */
+    }
+
+    /* --- CONTACT SECTION --- */
+    .find-container {
+        flex-direction: column; /* Stack buttons */
+        gap: 30px;
+        margin-top: 50px;
+        align-items: center;
+    }
+
+    /* Reset absolute positioning for buttons on mobile so they stack */
+    .sm, .job, .cv {
+        position: relative;
+        margin-left: 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    /* --- DETAIL POPUP RESPONSIVENESS --- */
+    .detail-content {
+        width: 95%; /* Almost full width */
+        padding: 20px;
+        max-height: 80vh;
+    }
+
+    /* Stack the Header and Visit button on mobile */
+    .detail-top-section {
+        flex-direction: column;
+        gap: 15px;
+        align-items: flex-start; /* Align left */
+    }
+
+    .detail-header {
+        width: 100%;
+        padding: 15px;
+    }
+
+    #detail-visit-btn {
+        width: 100%; /* Full width button on mobile */
+        padding: 15px 0;
+        font-size: 1.2em;
+    }
+
+    #detail-title {
+        font-size: 24px;
+    }
+
+    /* Move close button to be visible */
+    #detail-close-btn {
+        top: 10px;
+        right: 10px;
+        padding: 8px 15px;
+        font-size: 12px;
+        background-color: rgba(0,0,0,0.5); /* Add background to make it readable */
+    }
 }

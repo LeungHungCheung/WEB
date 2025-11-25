@@ -19,6 +19,10 @@
     height: 100%;
 }
 
+#vis-plot svg text {
+    font-weight: bold !important;
+    font-size: 12px; /* Optional: Increase size slightly if needed */
+}
 .tooltip {
     position: absolute;
     text-align: center;
@@ -63,7 +67,7 @@
     width: 100vw;
     height: 100vh;
     background: rgba(0, 0, 0, 0.9); /* Dark overlay */
-    z-index: 1000; /* On top of everything */
+    z-index: 100000; /* On top of everything */
     display: none; /* Hidden by default */
     /* MODIFIED: Added flex properties to center the content */
     display: none;

@@ -30,33 +30,56 @@ const data = {
                         title: "Engineering (HKCC)",
                         description: "Completed an Associate Degree in Engineering at HKCC from 2021-2023. This program provided a strong foundation in C/C++, electronics, complex logical thinking, and mathematics, which now informs my technical art practice."
                     } 
-                },
-                { 
-                    name: "Online Course", 
-                    imports: ["Me.Tools.Python", "Me.Tools.DeepSeek", "Me.Skills.AI Use", "Me.Skills.Cloud Computing"] 
                 }
             ]
         },
         {
             name: "Artwork",
             children: [
-                { name: "Painting", imports: ["Me.Hobbies.Drawing"] },
-                { name: "Sculpture", imports: ["Me.Hobbies.Crafting"] },
-                { name: "Digital Art", imports: ["Me.Tools.Photoshop", "Me.Tools.Illustration"] },
-                { name: "Photography", imports: ["Me.Skills.Basic Camera Operation", "Me.Tools.LightRoom"] },
+                { name: "Painting", imports: ["Me.Hobbies.Drawing"],
+                    details: {
+                        title: "Painting",
+                        description: "Completed one painting course in CityU back to the time in my first year. It was about pencil drawing, life drawing and sketching which equipped me with basic painting skills and knowledge"
+                    }
+                 },
+                { name: "Sculpture", imports: ["Me.Hobbies.Crafting"],
+                    details:{
+                        title: "Sculpture",
+                        description:"Completed one sculpture course in CityU in my first year. It was all material based, it teach me how to adopt different situation to create unique sculpture."
+                    }
+                },
+                { name: "Digital Art", imports: ["Me.Tools.Photoshop", "Me.Tools.Illustration"],
+                    details:{
+                        title:"Digital Art",
+                        description:"A synthesis of digital painting, photo manipulation, and graphic design. Focusing on composition, color theory, and the precise execution of visual ideas using Photoshop and Illustrator.",
+                        relations: ["Photography", "Infographic", "Art Game"]
+                    }
+                 },
+                { name: "Photography", imports: ["Me.Skills.Basic Camera Operation", "Me.Tools.LightRoom"],
+                    details:{
+                        title:"Photography",
+                        description:"The art of capturing moments with technical precision. Focusing on visual storytelling through composition, exposure control, and advanced post-processing in Lightroom."
+                    }
+                },
                 { name: "Art Photography", imports: ["Me.Skills.Basic Camera Operation", "Me.Tools.Photoshop"] },
                 { name: "B&W Photography", imports: ["Me.Tools.LightRoom"] },
-                { name: "Illustration", imports: ["Me.Tools.Illustration", "Me.Tools.Photoshop"] },
-                { name: "Infographic", imports: ["Me.Tools.Indesgin", "Me.Skills.Data Analysis"] },
+                { name: "Infographic", imports: ["Me.Tools.Indesgin", "Me.Skills.Data Analysis"],
+                    details:{
+                        title:"Infographic",
+                        description:"Creation of data visualizations and illustrative materials that simplify complex subjects. This practice relies on strong data analysis skills paired with design precision in Indesign to produce highly structured and concise informational graphics.",
+                        image: "source/12.webp",
+                        link: "https://drive.google.com/file/d/19usUeSW3dAYvDcQidRO0e5kuyVlMPBcm/view?usp=sharing"
+                        
+                    }
+                },
                 { name: "Animation", imports: ["Me.Tools.After Effect", "Me.Tools.Premiere Pro"] },
                 { name: "VFX", imports: ["Me.Tools.After Effect", "Me.Tools.Davinci Resolve"] },
                 { 
                     name: "Art Game", 
                     imports: ["Me.Skills.Game Design", "Me.Tools.C#", "Me.Skills.Programming"],
-                    // NEW: Added details
                     details: {
                         title: "Art Game",
-                        description: "Exploring the medium of games as a form of artistic expression. This involves using C# and Unity to create interactive experiences that prioritize concept, aesthetic, and critical thought over traditional gameplay mechanics."
+                        description: "Exploring the medium of games as a form of artistic expression. This involves using C# and Unity to create interactive experiences that prioritize concept, aesthetic, and critical thought over traditional gameplay mechanics.",
                     }
                 },
                 { name: "Physical Computing", imports: ["Me.Tools.Arduino", "Me.Skills.Electronic Connection"] }
@@ -75,7 +98,6 @@ const data = {
                         { name: "Basic Camera Operation", imports: ["Me.Experience.Video Company (MBP)", "Me.Artwork.Photography"] },
                         { name: "Problem Solving", imports: ["Me.School.Associate Degree (HKCC)", "Me.Projects.Sustainable Arduino"] },
                         { name: "Teamwork", imports: ["Me.Experience.Video Company (MBP)", "Me.Experience.Music Company (JLMusic)"] },
-                        { name: "Cloud Computing", imports: ["Me.School.Online Course"] },
                         { name: "UI/UX Design", imports: ["Me.Tools.Figma", "Me.Projects.Personal Website", "Me.Projects.Art Game"] },
                         { name: "Leadership", imports: ["Me.Experience.Student Helper", "Me.Projects.Social Engagement Exhibition"] },
                         { name: "AI Use", imports: ["Me.Tools.DeepSeek", "Me.Tools.Python"] },
@@ -90,7 +112,7 @@ const data = {
                     children: [
                         { name: "Video Company (MBP)", imports: ["Me.Tools.Premiere Pro", "Me.Tools.After Effect", "Me.Tools.Davinci Resolve", "Me.Skills.Teamwork"] },
                         { name: "Music Company (JLMusic)", imports: ["Me.Hobbies.Guitar", "Me.Skills.Teamwork"] },
-                        { name: "Volunteer Work", imports: ["Me.Skills.Public Speaking", "Me.Skills.Communication"] },
+                        { name: "Crew Work", imports: ["Me.Skills.Public Speaking", "Me.Skills.Communication"] },
                         { name: "Freelance", imports: ["Me.Skills.Design", "Me.Skills.Writing", "Me.Tools.Figma"] },
                         { name: "Student Helper", imports: ["Me.Skills.Leadership", "Me.School.Undergraduate (CityU)"] }
                     ]
@@ -98,65 +120,160 @@ const data = {
         {
             name: "Tools",
             children: [
-                { name: "Python", imports: ["Me.Skills.Data Analysis", "Me.Skills.AI Use"] },
-                { name: "C++", imports: ["Me.School.Associate Degree (HKCC)", "Me.Skills.Programming"] },
-                { 
-                    name: "C#", 
-                    imports: ["Me.Artwork.Art Game", "Me.Skills.Game Design"],
-                    // NEW: Added details
-                    details: {
-                        title: "C# (C-Sharp)",
-                        description: "The primary programming language used for developing games and interactive applications in the Unity engine. My knowledge of C# is directly applied to my 'Art Game' projects."
-                    }
-                },
-                        { name: "C", imports: ["Me.School.Associate Degree (HKCC)"] },
-                        { name: "JavaScript", imports: ["Me.Projects.Personal Website", "Me.Projects.Creative Coding"] },
-                        { name: "Figma", imports: ["Me.Skills.UI/UX Design", "Me.Projects.Personal Website"] },
-                        { name: "VS Code", imports: ["Me.Skills.Programming", "Me.Projects.Creative Coding"] },
-                        { name: "GitHub", imports: ["Me.Skills.Programming", "Me.Projects.Personal Website"] },
+                        { name: "Python", imports: ["Me.Skills.Data Analysis", "Me.Skills.AI Use","Me.School.Associate Degree (HKCC)"] },
+                        { name: "C++", imports: ["Me.School.Associate Degree (HKCC)", "Me.Skills.Programming","Me.School.Associate Degree (HKCC)"] },
+                        { name: "C#",  imports: ["Me.Artwork.Art Game", "Me.Skills.Game Design","Me.School.Undergraduate (CityU)"],},
+                        { name: "JavaScript", imports: ["Me.Projects.Personal Website", "Me.Projects.Creative Coding","Me.Tools. Processing","Me.School.Undergraduate (CityU)"] },
+                        { name: "Figma", imports: ["Me.Skills.UI/UX Design", "Me.Projects.Personal Website","Me.School.Undergraduate (CityU)"] },
+                        { name: "VS Code", imports: ["Me.Skills.Programming", "Me.Projects.Creative Coding","Me.School.Undergraduate (CityU)"] },
+                        { name: "GitHub", imports: ["Me.Skills.Programming", "Me.Projects.Personal Website","Me.School.Undergraduate (CityU)"] },
                         { name: "After Effect", imports: ["Me.Artwork.Animation", "Me.Artwork.VFX"] },
                         { name: "LightRoom", imports: ["Me.Artwork.Photography", "Me.Artwork.B&W Photography"] },
                         { name: "Photoshop", imports: ["Me.Artwork.Digital Art", "Me.Skills.Design"] },
                         { name: "Indesgin", imports: ["Me.Artwork.Infographic", "Me.Skills.Writing"] },
                         { name: "Premiere Pro", imports: ["Me.Experience.Video Company (MBP)"] },
-                        { name: "CapCut", imports: ["Me.Hobbies.Photography"] }, // Assumed quick edits
+                        { name: "CapCut", imports: ["Me.Hobbies.Photography"] }, 
                         { name: "Davinci Resolve", imports: ["Me.Experience.Video Company (MBP)", "Me.Artwork.VFX"] },
                         { name: "Illustration", imports: ["Me.Artwork.Illustration", "Me.Skills.Design"] },
-                        { name: "Arduino", imports: ["Me.Projects.Sustainable Arduino", "Me.Skills.Electronic Connection"] },
+                        { name: "Arduino", imports: ["Me.Projects.Sustainable Arduino", "Me.Skills.Electronic Connection","Me.School.Undergraduate (CityU)"] },
                         { name: "DeepSeek", imports: ["Me.Skills.AI Use", "Me.School.Online Course"] },
-                        { name: "AutoCAD", imports: ["Me.Skills.Floor Plan Drawing"] }
+                        { name: "AutoCAD", imports: ["Me.Skills.Floor Plan Drawing,","Me.School.Associate Degree (HKCC)"] },
+                        { name: "Processing", imports: ["Me.Artwork.Digital Art","Me.Projects.Creative Coding","Me.School.Undergraduate (CityU)"] }
             ]
         },
         {
                     name: "Projects",
                     children: [
-                        { name: "Social Engagement Exhibition", imports: ["Me.Skills.Project Management", "Me.Skills.Leadership", "Me.Skills.Communication"] },
-                        { name: "Sustainable Arduino", imports: ["Me.Tools.Arduino", "Me.Skills.Electronic Connection", "Me.Tools.C++"] },
-                        { name: "Creative Coding", imports: ["Me.Tools.JavaScript", "Me.School.Undergraduate (CityU)"] },
-                        { name: "Personal Website", imports: ["Me.Tools.GitHub", "Me.Tools.VS Code", "Me.Skills.UI/UX Design"] },
-                        { name: "Art Game", imports: ["Me.Artwork.Art Game", "Me.Tools.C#"] },
-                        { name: "Photo Series", imports: ["Me.Artwork.Photography", "Me.Tools.LightRoom"] }
+                        { name: "Social Engagement Exhibition", imports: ["Me.Skills.Project Management", "Me.Skills.Leadership", "Me.Skills.Communication"],
+                            details:{
+                                title:"QR Code",
+                                description:"The project, titled Participatory Art: QR Code Room, transformed a university computer lab (M7058) into an environment entirely saturated with QR codes. The core intervention was converting all traditional text—from signs to software messages—into unique QR codes, creating an atmosphere of overwhelming visual chaos. The primary objective was to critique the societal assumption that convenience always equals accessibility , forcing participants to reflect on the autonomy, transparency, and human connection lost due to technological reliance. Participants were empowered as co-creators, allowed to scan, create, and remove codes, thereby reconstructing the space into a collective commentary on the digital society.",
+                                image:"source/10.webp",
+                                relations:["Undergraduate (CityU)","Teamwork"],
+
+                            }
+                         },
+                        { name: "Sustainable Arduino", imports: ["Me.Tools.Arduino", "Me.Skills.Electronic Connection", "Me.Tools.C++"], 
+                            details:{
+                                title:"Vplant",
+                                description:"Technology's dominance has led to a critical public health issue where most users significantly exceed WHO-recommended screen time limits, fostering unhealthy habits. This is particularly alarming among youth, with teenagers averaging 8.5 hours of screen time daily. This consumption forces an untenable 8-hour device, 8-hour sleep, 8-hour school allocation, critically eliminating time necessary for social interaction, physical activity, and healthy development .",
+                                image:"source/17.webp",
+                                relations:["C++","Undergraduate (CityU)","Game Design","Leadership","Arduino","AI Use","Digital Art"],
+                                link:"https://www.youtube.com/watch?v=LJIILJjTy7U"
+                            }
+                        },
+                        { name: "Creative Coding", imports: ["Me.Tools.JavaScript", "Me.School.Undergraduate (CityU)"],
+                            details:{
+                                title:"Super Torus",
+                                description:"This Torus Audio Reactive Visualizer is a Processing project dedicated to real-time audiovisual synthesis, treating the torus (a geometric shape) as a dynamic visual metaphor for sound. The visualizer is technically driven by audio input amplitude and frequency, which directly control the rotational speed of the torus—making the object spin faster with increasing musical intensity. Furthermore, the visualizer allows for user interaction to modify parameters like the color palette or geometric complexity in real-time, resulting in a unique, collaborative experience between the user, the code, and the music.",
+                                image:"source/16.webp",
+                                relations:["Programming","Java Script","Undergraduate (CityU)","Digital Art","Processing"],
+                                link:"https://www.youtube.com/watch?v=O5mJh_4uLhA"
+                            }
+                        },
+                        { name: "Personal Website", imports: ["Me.Tools.GitHub", "Me.Tools.VS Code", "Me.Skills.UI/UX Design"],
+                            details:{
+                                title:"Personal Website",
+                                description:"I am a Hong Kong-based creative media artist dedicated to the synthesis of technical logic and critical aesthetics. My practice is founded on an interdisciplinary approach, merging the analytical precision developed through my engineering background with the conceptual depth required for contemporary art. I explore media such as digital art, interactive physical computing, and narrative visualization to expose and critique the social impact of technology.",
+                                image:"source/15.webp",
+                                relations:["Programming","VS Code","Undergraduate (CityU)","GitHub","JavaScript","UI/UX Design","AI Use"],
+                                link:"https://leunghungcheung.github.io/WEB/index.html"
+                            }
+                         },
+                        { name: "Art Game", imports: ["Me.Artwork.Art Game", "Me.Tools.C#"],
+                            details:{
+                                title:"Apple & Orange",
+                                description:"A deceptively simple fruit-sorting game designed to challenge your perception. In 'Chromatic Sort,' apples appear orange and oranges glow red, forcing players to question ingrained assumptions. This game serves as a playful metaphor for real-world scenarios, urging you to think critically and not blindly accept information based solely on superficial cues.",
+                                image:"source/11.webp",
+                                relations:["Art Game","C#","Programming","Game Design", "Gaming","VS Code","Undergraduate (CityU)","Digital Art"],
+                                link:"https://play.unity.com/en/games/714d196c-3f93-4985-9f51-a8c85fc18a8b/apple-orange"
+                            }
+                         },
+                        { name: "Photo Series", imports: ["Me.Artwork.Photography", "Me.Tools.LightRoom"],
+                            details:{
+                                title:"Photo Series",
+                                description:"Inspired by the quiet, early morning commute, the theme explores the modern Hong Kong Sleep Deficit and digital dependence. The observation highlights a significant social issue: poor sleep health among Hongkongers. With approximately 85% of residents reporting they don't get enough sleep nightly (Xue, 2024), many rely on transportation time for crucial rest, while others remain fixed on their phones. The project will visually investigate this poor work-life balance and the quiet exhaustion found in the daily commute.",
+                                image:"source/13.webp",
+                                relations:["Photography","LightRoom","Undergraduate (CityU)"],
+                                link:"https://www.youtube.com/watch?v=nDTWFwrnCgM"
+
+                            }
+                         }
                     ]
                 },
         {
                     name: "Hobbies",
                     children: [
-                        { name: "Reading", imports: [] },
-                        { name: "Gaming", imports: ["Me.Artwork.Art Game"] },
-                        { name: "Hiking", imports: ["Me.Artwork.Photography"] }, // Assumed photography while hiking
-                        { name: "Drawing", imports: ["Me.Artwork.Painting"] },
-                        { name: "Photography", imports: ["Me.Artwork.Photography"] },
-                        { name: "Crafting", imports: ["Me.Artwork.Sculpture"] },
-                        { name: "Workout", imports: [] },
-                        { name: "Guitar", imports: ["Me.Experience.Music Company (JLMusic)"] }
+                        { name: "Reading", imports: ["Me.School.Undergraduate (CityU)"],
+                            details: { 
+                                title: "Reading", 
+                                description: "A fundamental practice accelerated during my time at CityU. Reading expands my intellectual view, providing me with foundational knowledge across various disciplines and sharpening my capacity for critical analysis of the world and contemporary media theory." 
+
+                            }
+                        },
+                        { name: "Gaming", imports: ["Me.Artwork.Art Game"],
+                            details: { 
+                                title: "Gaming", 
+                                description: "Beyond entertainment, gaming serves as a medium for conceptual experimentation. My interest lies in transposing commercial game mechanics into Art Games, focusing on narrative, aesthetic, and deeper meaning rather than traditional gameplay.", 
+                                relations: ["Art Game"] 
+
+                            }
+                        },
+                        { name: "Hiking", imports: ["Me.Artwork.Photography"],
+                            details: { 
+                                title: "Hiking", 
+                                description: "A vital practice for maintaining physical and mental health balance. Hiking provides extensive exposure to natural environments and diverse landscapes, which directly informs my perspective, composition skills, and subject matter for landscape photography.", 
+                                relations: ["Photography"] 
+                            }
+                         }, 
+                        { name: "Drawing", imports: ["Me.Artwork.Painting"],
+                            details: { 
+                                title: "Drawing", 
+                                description: "Freehand drawing serves as my rapid prototyping tool for visualizing concepts before digital execution. This practice quickly translates complex thoughts into technical schematics, wireframes, and initial compositions for design and artwork.", 
+                                relations: ["Painting"] 
+                            }
+                         },
+                        { name: "Crafting", imports: ["Me.Artwork.Sculpture"],
+                            details: { 
+                                title: "Crafting", 
+                                description: "Rooted in a childhood fascination with constructing and deconstructing objects, crafting developed an intuitive understanding of structural physics, material science, and spatial reasoning. This manual expertise is directly beneficial to my Sculpture and Physical Computing projects.", 
+                                relations: ["Sculpture"] 
+
+                            }
+                         },
+                        { name: "Guitar", imports: ["Me.Experience.Music Company (JLMusic)"],
+                            details: { 
+                                title: "Guitar", 
+                                description: "Although limited to fundamental chords, my basic knowledge of guitar facilitates communication on music theory and rhythm. This provides synergy when working on music video production and has expanded my opportunities for professional collaboration within the music industry.", 
+                                relations: ["Music Company (JLMusic)"] 
+                            }
+                         }
                     ]
                 },
         {
                     name: "Languages",
                     children: [
-                        { name: "English", imports: ["Me.Skills.Communication"] },
-                        { name: "Cantonese", imports: ["Me.Skills.Communication"] },
-                        { name: "Chinese", imports: ["Me.Skills.Communication"] }
+                        { name: "English", imports: ["Me.Skills.Communication"],
+                            details:{
+                                title:"English",
+                                description:"My second language, serving as the primary medium for academic research and professional communication. I utilize English to access global design trends, read technical documentation, and articulate creative concepts to an international audience.",
+                                relations: ["Cantonese", "Chinese"]
+                            }
+                         },
+                        { name: "Cantonese", imports: ["Me.Skills.Communication"],
+                            details:{
+                                title:"Cantonese",
+                                description:"My native language and the foundation of my cultural identity. Cantonese shapes my initial creative thinking and allows for the expression of nuanced, localized narratives that connect deeply with the Hong Kong community.",
+                                relations: ["Chinese", "English"]
+                            }
+                        },
+                        { name: "Chinese", imports: ["Me.Skills.Communication"],
+                            details:{
+                                title:"Chinese",
+                                description:"Working proficiency in Mandarin (Putonghua). This capability expands my professional reach beyond Hong Kong, facilitating communication with the broader Greater China market and enabling cross-border creative collaborations.",
+                                relations: ["Cantonese", "English"]
+                            }
+                         }
                     ]
                 }
     ]
@@ -187,51 +304,44 @@ function bilink(root) {
 }
 
 // --- 3. CONFIG & COLORS ---
-
 const colorin = "blue";
 const colorout = "gold";
 const colornone = "#e8e8e8";
 const width = 1000;
 const radius = width / 2;
-
 let selectedNode = null;
 
 // --- 4. BUILD CHART ---
-
-// NEW: Get references to all the new HTML elements
 const visPlot = document.getElementById('vis-plot');
 const detailPage = document.getElementById('detail-page');
 const detailCloseBtn = document.getElementById('detail-close-btn');
 const detailTitle = document.getElementById('detail-title');
 const detailDescription = document.getElementById('detail-description');
 const moreInfoBtn = document.getElementById('more-info-btn');
+const detailCategory = document.getElementById('detail-category');
+const detailImage = document.getElementById('detail-image');
+const relationsWrapper = document.getElementById('detail-relations-wrapper');
+const relationsList = document.getElementById('relations-list');
+const detailVisitBtn = document.getElementById('detail-visit-btn'); // NEW
 
-
-const tree = d3.cluster()
-    .size([2 * Math.PI, radius - 120]);
-
+const tree = d3.cluster().size([2 * Math.PI, radius - 120]);
 const root = tree(bilink(d3.hierarchy(data)
     .sort((a, b) => d3.ascending(a.height, b.height) || d3.ascending(a.data.name, b.data.name))));
 
-// Select the #vis-plot section to append the SVG
 const svg = d3.select("#vis-plot").append("svg")
-    .attr("width", "100%")
-    .attr("height", "100%")
+    .attr("width", "100%").attr("height", "100%")
     .attr("viewBox", [-width / 2, -width / 2, width, width])
     .attr("style", "font: 11px sans-serif;")
-    .on("click", resetView); // Click on background to reset
+    .on("click", resetView);
 
-const mainGroup = svg.append("g")
-    .attr("transform", "scale(1) translate(0, -50)");
+const mainGroup = svg.append("g").attr("transform", "scale(1) translate(0, -50)");
 
 const line = d3.lineRadial()
     .curve(d3.curveBundle.beta(0.85))
-    .radius(d => d.y)
-    .angle(d => d.x);
+    .radius(d => d.y).angle(d => d.x);
 
 const link = mainGroup.append("g")
-    .attr("stroke", colornone)
-    .attr("fill", "none")
+    .attr("stroke", colornone).attr("fill", "none")
     .selectAll()
     .data(root.leaves().flatMap(leaf => leaf.outgoing))
     .join("path")
@@ -254,40 +364,94 @@ const node = mainGroup.append("g")
     .on("mouseover", overed)
     .on("mouseout", outed)
     .on("click", clicked)
-    .call(text => text.append("title").text(d => 
-        `${d.data.name}\nOutgoing: ${d.outgoing.length}\nIncoming: ${d.incoming.length}`
-    ));
+    .call(text => text.append("title").text(d => `${d.data.name}\nOutgoing: ${d.outgoing.length}\nIncoming: ${d.incoming.length}`));
 
 // --- 5. INTERACTION ---
 
-// (overed and outed are unchanged)
 function overed(event, d) {
     if (selectedNode) return;
-
     link.style("mix-blend-mode", null);
     d3.select(d.text).attr("font-weight", "bold").attr("fill", "black");
-
     d3.selectAll(d.incoming.map(p => p.path)).attr("stroke", colorin).attr("stroke-width", 2).raise();
     d3.selectAll(d.incoming.map(([s]) => s.text)).attr("fill", colorin).attr("font-weight", "bold");
-    
     d3.selectAll(d.outgoing.map(p => p.path)).attr("stroke", colorout).attr("stroke-width", 2).raise();
     d3.selectAll(d.outgoing.map(([, t]) => t.text)).attr("fill", colorout).attr("font-weight", "bold");
 }
 
 function outed(event, d) {
     if (selectedNode) return;
-
     link.style("mix-blend-mode", "multiply");
     d3.select(d.text).attr("font-weight", null).attr("fill", null);
-
     d3.selectAll(d.incoming.map(p => p.path)).attr("stroke", null).attr("stroke-width", null);
     d3.selectAll(d.incoming.map(([s]) => s.text)).attr("fill", null).attr("font-weight", null);
-    
     d3.selectAll(d.outgoing.map(p => p.path)).attr("stroke", null).attr("stroke-width", null);
     d3.selectAll(d.outgoing.map(([, t]) => t.text)).attr("fill", null).attr("font-weight", null);
 }
 
-// MODIFIED: clicked function
+// Helper to open the detail page (Handles content & relations)
+function openDetailPage(d) {
+    const parentName = d.parent ? d.parent.data.name : "";
+    let categoryLabel = "OTHERS";
+    switch (parentName) {
+        case "Artwork": categoryLabel = "PROJECT"; break;
+        case "School": categoryLabel = "SCHOOLING"; break;
+        case "Skills": 
+        case "Tools": categoryLabel = "SKILLS"; break;
+        case "Experience": categoryLabel = "WORK"; break;
+        default: categoryLabel = "OTHERS";
+    }
+
+    // Set Text Content
+    if(detailCategory) detailCategory.textContent = categoryLabel;
+    detailTitle.textContent = d.data.details.title;
+    detailDescription.textContent = d.data.details.description;
+
+    // Set Image
+    if (d.data.details.image) {
+        detailImage.src = d.data.details.image;
+        detailImage.style.display = "block";
+    } else {
+        detailImage.style.display = "none";
+        detailImage.src = "";
+    }
+
+    // Set Visit Button
+    if (d.data.details.link) {
+        detailVisitBtn.href = d.data.details.link;
+        detailVisitBtn.style.display = "block";
+    } else {
+        detailVisitBtn.href = "#";
+        detailVisitBtn.style.display = "none";
+    }
+
+    // Generate Relations Buttons
+    relationsList.innerHTML = ''; 
+    if (d.data.details.relations && d.data.details.relations.length > 0) {
+        relationsWrapper.style.display = 'block';
+        d.data.details.relations.forEach(relName => {
+            const targetNode = root.descendants().find(n => n.data.name === relName);
+            if (targetNode) {
+                const btn = document.createElement('button');
+                btn.className = 'relation-btn';
+                btn.innerHTML = `<span>Related</span>${relName}`;
+                btn.onclick = (clickEvent) => {
+                    // Update graph highlighting AND open new detail page
+                    clicked(clickEvent, targetNode);
+                    openDetailPage(targetNode);
+                };
+                relationsList.appendChild(btn);
+            }
+        });
+    } else {
+        relationsWrapper.style.display = 'none';
+    }
+
+    // Show the Overlay
+    detailPage.style.display = 'flex';
+    moreInfoBtn.style.display = 'none'; 
+    document.body.classList.add('overlay-open');
+}
+
 function clicked(event, d) {
     event.stopPropagation(); 
 
@@ -295,81 +459,48 @@ function clicked(event, d) {
         return resetView();
     }
     selectedNode = d;
-
-    // Reset button from previous selection
     moreInfoBtn.style.display = 'none';
 
-    link.style("mix-blend-mode", null)
-        .attr("stroke-opacity", 0.1)
-        .attr("stroke", colornone)
-        .attr("stroke-width", 1);
-    
-    node.attr("opacity", 0.2);
+    // --- CLEAN SLATE: Reset all styles before highlighting new ones ---
+    link.style("mix-blend-mode", null).attr("stroke-opacity", 0.1).attr("stroke", colornone).attr("stroke-width", 1);
+    node.attr("opacity", 0.2).attr("fill", null).attr("font-weight", null);
 
+    // --- HIGHLIGHT NEW SELECTION ---
     d3.select(d.text).attr("font-weight", "bold").attr("fill", "black").attr("opacity", 1);
-
+    
     d3.selectAll(d.incoming.map(p => p.path)).attr("stroke", colorin).attr("stroke-width", 2).attr("stroke-opacity", 1).raise();
     d3.selectAll(d.incoming.map(([s]) => s.text)).attr("fill", colorin).attr("font-weight", "bold").attr("opacity", 1);
     
     d3.selectAll(d.outgoing.map(p => p.path)).attr("stroke", colorout).attr("stroke-width", 2).attr("stroke-opacity", 1).raise();
     d3.selectAll(d.outgoing.map(([, t]) => t.text)).attr("fill", colorout).attr("font-weight", "bold").attr("opacity", 1);
 
-    // NEW: Check if this node has details
+    // Initial "More Info" Button display
     if (d.data.details) {
-        // Get position of the mouse click relative to the #vis-plot container
         const plotRect = visPlot.getBoundingClientRect();
-        const x = event.clientX - plotRect.left + 15; // 15px offset
+        const x = event.clientX - plotRect.left + 15;
         const y = event.clientY - plotRect.top;
 
-        // Position and show the button
         moreInfoBtn.style.left = `${x}px`;
         moreInfoBtn.style.top = `${y}px`;
         moreInfoBtn.style.display = 'block';
 
-        // Set the button's click event to show this node's details
         moreInfoBtn.onclick = (e) => {
-            e.stopPropagation(); // Stop click from bubbling to the SVG
-            detailTitle.textContent = d.data.details.title;
-            detailDescription.textContent = d.data.details.description;
-            // MODIFIED: Use 'flex' to center the content
-            detailPage.style.display = 'flex';
-            moreInfoBtn.style.display = 'none'; 
-            
-            // NEW: Prevent body from scrolling
-            document.body.classList.add('overlay-open');
+            e.stopPropagation();
+            openDetailPage(d);
         };
     }
 }
 
-// MODIFIED: resetView function
 function resetView() {
     selectedNode = null;
-
-    link.style("mix-blend-mode", "multiply")
-        .attr("stroke", null)
-        .attr("stroke-width", null)
-        .attr("stroke-opacity", 1);
-
-    node.attr("fill", null)
-        .attr("font-weight", null)
-        .attr("opacity", 1);
-
-    // NEW: Hide the button and detail page
+    link.style("mix-blend-mode", "multiply").attr("stroke", null).attr("stroke-width", null).attr("stroke-opacity", 1);
+    node.attr("opacity", 1).attr("fill", null).attr("font-weight", null);
     moreInfoBtn.style.display = 'none';
     detailPage.style.display = 'none';
-    
-    // NEW: Allow body to scroll again
     document.body.classList.remove('overlay-open');
 }
 
-// NEW: Add click event for the close button
 detailCloseBtn.addEventListener('click', () => {
     detailPage.style.display = 'none';
-    
-    // NEW: Allow body to scroll again
     document.body.classList.remove('overlay-open');
-    // Note: We don't call resetView() here, so the highlighting remains
 });
-
-// --- 6. ZOOM ---
-// (Zoom functionality remains removed)
