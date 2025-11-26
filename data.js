@@ -36,85 +36,126 @@ const data = {
         {
             name: "Artwork",
             children: [
-                { name: "Painting", imports: ["Me.Hobbies.Drawing"],
+                { name: "Painting", imports: ["Me.Hobbies.Drawing","Me.School.Undergraduate (CityU)"],
                     details: {
                         title: "Painting",
-                        description: "Completed one painting course in CityU back to the time in my first year. It was about pencil drawing, life drawing and sketching which equipped me with basic painting skills and knowledge"
+                        description: "Completed one painting course in CityU back to the time in my first year. It was about pencil drawing, life drawing and sketching which equipped me with basic painting skills and knowledge",
+                        relations:["Drawing","Undergraduate (CityU)"]
                     }
                  },
-                { name: "Sculpture", imports: ["Me.Hobbies.Crafting"],
+                { name: "Sculpture", imports: ["Me.Hobbies.Crafting","Me.School.Undergraduate (CityU)"],
                     details:{
                         title: "Sculpture",
-                        description:"Completed one sculpture course in CityU in my first year. It was all material based, it teach me how to adopt different situation to create unique sculpture."
+                        description:"Completed one sculpture course in CityU in my first year. It was all material based, it teach me how to adopt different situation to create unique sculpture.",
+                        image:"source/14.webp",
+                        relations:["Crafting","Undergraduate (CityU)"]
                     }
                 },
-                { name: "Digital Art", imports: ["Me.Tools.Photoshop", "Me.Tools.Illustration"],
+                { name: "Digital Art", imports: ["Me.Tools.Photoshop", "Me.Tools.Illustration","Me.School.Undergraduate (CityU)"],
                     details:{
                         title:"Digital Art",
                         description:"A synthesis of digital painting, photo manipulation, and graphic design. Focusing on composition, color theory, and the precise execution of visual ideas using Photoshop and Illustrator.",
-                        relations: ["Photography", "Infographic", "Art Game"]
+                        relations: ["Photography", "Infographic", "Art Game","Undergraduate (CityU)"]
                     }
                  },
-                { name: "Photography", imports: ["Me.Skills.Basic Camera Operation", "Me.Tools.LightRoom"],
+                { name: "Photography", imports: ["Me.Skills.Basic Camera Operation", "Me.Tools.LightRoom","Me.School.Undergraduate (CityU)"],
                     details:{
                         title:"Photography",
-                        description:"The art of capturing moments with technical precision. Focusing on visual storytelling through composition, exposure control, and advanced post-processing in Lightroom."
+                        description:"The art of capturing moments with technical precision. Focusing on visual storytelling through composition, exposure control, and advanced post-processing in Lightroom.",
+                        relations:["Photo Series","Undergraduate (CityU)"]
                     }
                 },
-                { name: "Art Photography", imports: ["Me.Skills.Basic Camera Operation", "Me.Tools.Photoshop"] },
-                { name: "B&W Photography", imports: ["Me.Tools.LightRoom"] },
-                { name: "Infographic", imports: ["Me.Tools.Indesgin", "Me.Skills.Data Analysis"],
+                { name: "Art Photography", imports: ["Me.Skills.Basic Camera Operation", "Me.Tools.Photoshop","Me.School.Undergraduate (CityU)"] },
+                { name: "B&W Photography", imports: ["Me.Tools.LightRoom","Me.School.Undergraduate (CityU)"] },
+                { name: "Infographic", imports: ["Me.Tools.Indesgin", "Me.Skills.Data Analysis","Me.School.Undergraduate (CityU)"],
                     details:{
                         title:"Infographic",
                         description:"Creation of data visualizations and illustrative materials that simplify complex subjects. This practice relies on strong data analysis skills paired with design precision in Indesign to produce highly structured and concise informational graphics.",
                         image: "source/12.webp",
-                        link: "https://drive.google.com/file/d/19usUeSW3dAYvDcQidRO0e5kuyVlMPBcm/view?usp=sharing"
-                        
+                        link: "https://drive.google.com/file/d/19usUeSW3dAYvDcQidRO0e5kuyVlMPBcm/view?usp=sharing",
+                        relations:["UI/UX Design","Undergraduate (CityU)"]
                     }
                 },
                 { name: "Animation", imports: ["Me.Tools.After Effect", "Me.Tools.Premiere Pro"] },
                 { name: "VFX", imports: ["Me.Tools.After Effect", "Me.Tools.Davinci Resolve"] },
                 { 
-                    name: "Art Game", 
-                    imports: ["Me.Skills.Game Design", "Me.Tools.C#", "Me.Skills.Programming"],
+                    name: "Game", 
+                    imports: ["Me.Skills.Game Design", "Me.Tools.C#", "Me.Skills.Programming","Me.School.Undergraduate (CityU)"],
                     details: {
                         title: "Art Game",
                         description: "Exploring the medium of games as a form of artistic expression. This involves using C# and Unity to create interactive experiences that prioritize concept, aesthetic, and critical thought over traditional gameplay mechanics.",
+                        relations:["Art Game"]
                     }
                 },
-                { name: "Physical Computing", imports: ["Me.Tools.Arduino", "Me.Skills.Electronic Connection"] }
+                { name: "Physical Computing", imports: ["Me.Tools.Arduino", "Me.Skills.Electronic Connection","Me.School.Undergraduate (CityU)"],
+                    details: {
+                        title: "Physical Computing",
+                        description: "Physical Computing explores how humans communicate with the digital world through physical interactions, utilizing sensors and effectors to translate environmental sensations into understandable forms. It focuses on building interactive systems that sense and respond to the physical world via embedded systems and open-source hardware platforms like Arduino. This practice increasingly integrates modern technologies, including GenAI tools for conceptualization and rapid prototyping techniques such as laser cutting and Wizard-of-Oz methods, to create tangible works that bridge the physical and digital realms.",
+                        relations:["Arduino","Programming"]
+                    }
+                 }
             ]
         },
         {
                     name: "Skills",
                     children: [
-                        { name: "Programming", imports: ["Me.Tools.VS Code", "Me.Tools.GitHub", "Me.Tools.Python", "Me.Tools.JavaScript"] },
-                        { name: "Design", imports: ["Me.Tools.Figma", "Me.Tools.Photoshop", "Me.Tools.Illustration"] },
+                        { name: "Programming", imports: ["Me.Tools.VS Code", "Me.Tools.GitHub", "Me.Tools.Python", "Me.Tools.JavaScript","Me.School.Associate Degree (HKCC)","Me.School.Undergraduate (CityU)"] ,
+                            details: {
+                        title: "Programming",
+                        description: "Programming serves as my bridge between logic and creative expression, spanning both physical and digital realms. Proficient in C++ and Arduino for hardware interaction, I simultaneously utilize JavaScript and CSS to craft immersive websites, dynamic visualizations, and interactive games, effectively translating technical code into engaging user experiences.",
+                        relations:["Arduino","Art Game","Creative Coding","Personal Website","Sustainable Arduino"]
+                    }
+                        },
+                        { name: "Design", imports: ["Me.Tools.Figma", "Me.Tools.Photoshop", "Me.Tools.Illustration","Me.School.Undergraduate (CityU)"] },
                         { name: "Communication", imports: ["Me.Experience.Volunteer Work", "Me.Languages.English", "Me.Languages.Cantonese"] },
-                        { name: "Project Management", imports: ["Me.Experience.Video Company (MBP)", "Me.Projects.Social Engagement Exhibition"] },
-                        { name: "Data Analysis", imports: ["Me.Tools.Python", "Me.Tools.DeepSeek"] },
-                        { name: "Public Speaking", imports: ["Me.Experience.Student Helper", "Me.Experience.Volunteer Work"] },
+                        { name: "Project Management", imports: ["Me.Experience.Video Company (MBP)", "Me.Projects.Social Engagement Exhibition","Me.School.Undergraduate (CityU)"] },
+                        { name: "Data Analysis", imports: ["Me.Tools.Python", "Me.Tools.DeepSeek","Me.School.Associate Degree (HKCC)","Me.School.Undergraduate (CityU)"] },
+                        { name: "Public Speaking", imports: ["Me.Experience.Student Helper", "Me.Experience.Volunteer Work","Me.School.Undergraduate (CityU)"] },
                         { name: "Writing", imports: ["Me.Tools.Indesgin", "Me.Experience.Freelance"] },
                         { name: "Basic Camera Operation", imports: ["Me.Experience.Video Company (MBP)", "Me.Artwork.Photography"] },
-                        { name: "Problem Solving", imports: ["Me.School.Associate Degree (HKCC)", "Me.Projects.Sustainable Arduino"] },
-                        { name: "Teamwork", imports: ["Me.Experience.Video Company (MBP)", "Me.Experience.Music Company (JLMusic)"] },
-                        { name: "UI/UX Design", imports: ["Me.Tools.Figma", "Me.Projects.Personal Website", "Me.Projects.Art Game"] },
-                        { name: "Leadership", imports: ["Me.Experience.Student Helper", "Me.Projects.Social Engagement Exhibition"] },
-                        { name: "AI Use", imports: ["Me.Tools.DeepSeek", "Me.Tools.Python"] },
-                        { name: "Electronic Connection", imports: ["Me.Tools.Arduino", "Me.Projects.Sustainable Arduino"] },
-                        { name: "Game Design", imports: ["Me.Tools.C#", "Me.Artwork.Art Game"] },
-                        { name: "Floor Plan Drawing", imports: ["Me.Tools.AutoCAD"] },
+                        { name: "Problem Solving", imports: ["Me.School.Associate Degree (HKCC)", "Me.Projects.Sustainable Arduino","Me.School.Undergraduate (CityU)"] },
+                        { name: "Teamwork", imports: ["Me.Experience.Video Company (MBP)", "Me.Experience.Music Company (JLMusic)","Me.School.Undergraduate (CityU)"] },
+                        { name: "UI/UX Design", imports: ["Me.Tools.Figma", "Me.Projects.Personal Website", "Me.Projects.Art Game","Me.School.Undergraduate (CityU)"],
+                            details:{
+                                title:"UI/UX",
+                                description:"UI/UX Design focuses on crafting intuitive and visually compelling digital experiences. I utilize Figma for wireframing and high-fidelity prototyping to map out user journeys, and leverage platforms like Wix Studio to translate these conceptual designs into functional, responsive web layouts that prioritize both aesthetics and usability.",
+                                image:"source/18.webp",
+                                link:"https://www.figma.com/design/zRyDrgtesu4YTydRflXs81/UX-UI-Assignment?node-id=2-3&t=8x316ig0dZzw5gMr-1",
+                                relations:["Digital Art","Programming","Personal Website","Figma","Undergraduate (CityU)"]
+                            }
+                         },
+                        { name: "Leadership", imports: ["Me.Experience.Student Helper", "Me.Projects.Social Engagement Exhibition","Me.School.Undergraduate (CityU)"] },
+                        { name: "AI Use", imports: ["Me.Tools.DeepSeek", "Me.Tools.Python","Me.School.Undergraduate (CityU)"] },
+                        { name: "Electronic Connection", imports: ["Me.Tools.Arduino", "Me.Projects.Sustainable Arduino","Me.School.Associate Degree (HKCC)"] },
+                        { name: "Game Design", imports: ["Me.Tools.C#", "Me.Artwork.Art Game","Me.School.Undergraduate (CityU)"] },
+                        { name: "Floor Plan Drawing", imports: ["Me.Tools.AutoCAD","Me.School.Associate Degree (HKCC)"] },
                         { name: "Complex Maths", imports: ["Me.School.Associate Degree (HKCC)", "Me.Tools.C++"] }
                     ]
                 },
         {
                     name: "Experience",
                     children: [
-                        { name: "Video Company (MBP)", imports: ["Me.Tools.Premiere Pro", "Me.Tools.After Effect", "Me.Tools.Davinci Resolve", "Me.Skills.Teamwork"] },
-                        { name: "Music Company (JLMusic)", imports: ["Me.Hobbies.Guitar", "Me.Skills.Teamwork"] },
+                        { name: "Video Company (MBP)", imports: ["Me.Tools.Premiere Pro", "Me.Tools.After Effect", "Me.Tools.Davinci Resolve", "Me.Skills.Teamwork"],
+                            details:{
+                                title:"MBP (Internship)",
+                                description:"My time at MBP solidified my passion for post-production and visual storytelling. I was deeply involved in the video production workflow, ranging from shooting live events to the final edit. Leveraging tools like Adobe Premiere Pro, After Effects, and CapCut, I crafted dynamic video narratives, refining my skills in pacing, visual effects, and technical editing to deliver high-quality content.",
+                                image:"source/20.webp",
+                                link:"https://www.instagram.com/mbpproduce/",
+                                relations:["Photography","CapCut","Premiere Pro","After Effect"]
+                            }
+                         },
+                        { name: "Music Company (JLMusic)", imports: ["Me.Hobbies.Guitar", "Me.Skills.Teamwork"],
+                            details:{
+                                title:"JLMusic",
+                                description:"Since 2022, I have been a dedicated visual creative for JLMusic, overseeing the full spectrum of media production. My responsibilities span from planning and directing music videos to executing event photography and videography. I leverage my editing skills to craft compelling visual narratives that align with the label's musical identity, ensuring high-quality output from concept to final cut.",
+                                image:"source/19.webp",
+                                link:"https://www.instagram.com/jlmusichk/",
+                                relations:["Photography","Davinci Resolve"]
+                            }
+                         },
                         { name: "Crew Work", imports: ["Me.Skills.Public Speaking", "Me.Skills.Communication"] },
                         { name: "Freelance", imports: ["Me.Skills.Design", "Me.Skills.Writing", "Me.Tools.Figma"] },
-                        { name: "Student Helper", imports: ["Me.Skills.Leadership", "Me.School.Undergraduate (CityU)"] }
+                        { name: "Student Helper", imports: ["Me.Skills.Leadership", "Me.School.Undergraduate (CityU)"]}
                     ]
                 },
         {
@@ -185,7 +226,7 @@ const data = {
                                 title:"Apple & Orange",
                                 description:"A deceptively simple fruit-sorting game designed to challenge your perception. In 'Chromatic Sort,' apples appear orange and oranges glow red, forcing players to question ingrained assumptions. This game serves as a playful metaphor for real-world scenarios, urging you to think critically and not blindly accept information based solely on superficial cues.",
                                 image:"source/11.webp",
-                                relations:["Art Game","C#","Programming","Game Design", "Gaming","VS Code","Undergraduate (CityU)","Digital Art"],
+                                relations:["Game","C#","Programming","Game Design", "Gaming","VS Code","Undergraduate (CityU)","Digital Art"],
                                 link:"https://play.unity.com/en/games/714d196c-3f93-4985-9f51-a8c85fc18a8b/apple-orange"
                             }
                          },
@@ -215,7 +256,7 @@ const data = {
                             details: { 
                                 title: "Gaming", 
                                 description: "Beyond entertainment, gaming serves as a medium for conceptual experimentation. My interest lies in transposing commercial game mechanics into Art Games, focusing on narrative, aesthetic, and deeper meaning rather than traditional gameplay.", 
-                                relations: ["Art Game"] 
+                                relations: ["Game","Art Game"] 
 
                             }
                         },
@@ -230,7 +271,7 @@ const data = {
                             details: { 
                                 title: "Drawing", 
                                 description: "Freehand drawing serves as my rapid prototyping tool for visualizing concepts before digital execution. This practice quickly translates complex thoughts into technical schematics, wireframes, and initial compositions for design and artwork.", 
-                                relations: ["Painting"] 
+                                relations: ["Painting","AutoCAD","Floor Plan Drawing"] 
                             }
                          },
                         { name: "Crafting", imports: ["Me.Artwork.Sculpture"],

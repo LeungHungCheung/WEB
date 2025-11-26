@@ -545,7 +545,7 @@ nav li:first-child { font-weight: bold; padding-right: 5em; }
 @media screen and (max-width: 1024px) {
     /* --- 1. GENERAL LAYOUT FIXES --- */
     html, body {
-        overflow-x: hidden; /* Prevent side scrolling */
+        overflow-x: hidden; 
         width: 100%;
     }
 
@@ -561,11 +561,19 @@ nav li:first-child { font-weight: bold; padding-right: 5em; }
         flex: auto;
     }
 
-    /* --- 2. NAVIGATION BAR FIX --- */
+    /* --- 2. NAVIGATION BAR FIX (Sticky + Scrollable) --- */
     nav {
         padding: 15px 20px;
+        
+        /* MAKE IT STICKY */
+        position: -webkit-sticky; /* Required for Safari/iOS */
         position: sticky;
+        top: 0;                   /* Sticks to the very top */
+        z-index: 9000;            /* Sits above page content */
+        
         background: var(--nav-bg);
+        width: 100%;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Optional separator */
     }
     
     nav ul {
@@ -601,28 +609,26 @@ nav li:first-child { font-weight: bold; padding-right: 5em; }
 
     /* --- 3. WORK SECTION FIX (IMAGE -> WORDS ORDER) --- */
     .work-overall {
-        flex-direction: column; /* Stack vertically */
+        flex-direction: column; 
         margin-bottom: 60px;
     }
 
-    /* FORCE IMAGE TO TOP */
-    /* By giving the anchor (image) an order of -1, it jumps to the start */
+    /* Image on TOP */
     .work-overall > a {
         order: -1; 
         width: 100%;
-        margin-bottom: 20px; /* Space between image and text */
+        margin-bottom: 20px;
         display: block;
     }
 
     .mv-pic, .mv-pic-1 {
-        width: 100% !important; /* Force image to fit screen */
+        width: 100% !important; 
         height: auto;
         margin-left: 0;
         margin-top: 0;
     }
 
-    /* FORCE TEXT TO BOTTOM */
-    /* By giving text containers an order of 1, they stay below the image */
+    /* Words on BOTTOM */
     .common0, .common1, .common-1 {
         order: 1;
         margin-left: 0;
