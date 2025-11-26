@@ -1,5 +1,4 @@
-// --- 1. YOUR REAL DATA ---
-// ... (Your data object with 'details' properties) ...
+
 const data = {
     name: "Me",
     children: [
@@ -13,7 +12,6 @@ const data = {
                         "Me.Skills.Design", "Me.Skills.UI/UX Design", "Me.Skills.Game Design", "Me.Skills.Programming",
                         "Me.Tools.Processing", "Me.Projects.Creative Coding", "Me.Projects.Social Engagement Exhibition"
                     ],
-                    // NEW: Added details
                     details: {
                         title: "Undergraduate (CityU)",
                         description: "Currently studying at the School of Creative Media at City University of Hong Kong. This program combines art, technology, and critical thinking, allowing me to explore digital art, physical computing, game design, and more."
@@ -25,7 +23,6 @@ const data = {
                         "Me.Tools.C++", "Me.Tools.C", "Me.Tools.Arduino", "Me.Skills.Electronic Connection", 
                         "Me.Skills.Complex Maths", "Me.Skills.Problem Solving", "Me.Artwork.Physical Computing"
                     ],
-                    // NEW: Added details
                     details: {
                         title: "Engineering (HKCC)",
                         description: "Completed an Associate Degree in Engineering at HKCC from 2021-2023. This program provided a strong foundation in C/C++, electronics, complex logical thinking, and mathematics, which now informs my technical art practice."
@@ -67,7 +64,7 @@ const data = {
                 },
                 { name: "Art Photography", imports: ["Me.Skills.Basic Camera Operation", "Me.Tools.Photoshop","Me.School.Undergraduate (CityU)"] },
                 { name: "B&W Photography", imports: ["Me.Tools.LightRoom","Me.School.Undergraduate (CityU)"] },
-                { name: "Infographic", imports: ["Me.Tools.Indesgin", "Me.Skills.Data Analysis","Me.School.Undergraduate (CityU)"],
+                { name: "Infographic", imports: ["Me.Tools.InDesign", "Me.Skills.Data Analysis","Me.School.Undergraduate (CityU)"],
                     details:{
                         title:"Infographic",
                         description:"Creation of data visualizations and illustrative materials that simplify complex subjects. This practice relies on strong data analysis skills paired with design precision in Indesign to produce highly structured and concise informational graphics.",
@@ -111,7 +108,7 @@ const data = {
                         { name: "Project Management", imports: ["Me.Experience.Video Company (MBP)", "Me.Projects.Social Engagement Exhibition","Me.School.Undergraduate (CityU)"] },
                         { name: "Data Analysis", imports: ["Me.Tools.Python", "Me.Tools.DeepSeek","Me.School.Associate Degree (HKCC)","Me.School.Undergraduate (CityU)"] },
                         { name: "Public Speaking", imports: ["Me.Experience.Student Helper", "Me.Experience.Volunteer Work","Me.School.Undergraduate (CityU)"] },
-                        { name: "Writing", imports: ["Me.Tools.Indesgin", "Me.Experience.Freelance"] },
+                        { name: "Writing", imports: ["Me.Tools.InDesign", "Me.Experience.Freelance"] },
                         { name: "Basic Camera Operation", imports: ["Me.Experience.Video Company (MBP)", "Me.Artwork.Photography"] },
                         { name: "Problem Solving", imports: ["Me.School.Associate Degree (HKCC)", "Me.Projects.Sustainable Arduino","Me.School.Undergraduate (CityU)"] },
                         { name: "Teamwork", imports: ["Me.Experience.Video Company (MBP)", "Me.Experience.Music Company (JLMusic)","Me.School.Undergraduate (CityU)"] },
@@ -171,7 +168,7 @@ const data = {
                         { name: "After Effect", imports: ["Me.Artwork.Animation", "Me.Artwork.VFX"] },
                         { name: "LightRoom", imports: ["Me.Artwork.Photography", "Me.Artwork.B&W Photography"] },
                         { name: "Photoshop", imports: ["Me.Artwork.Digital Art", "Me.Skills.Design"] },
-                        { name: "Indesgin", imports: ["Me.Artwork.Infographic", "Me.Skills.Writing"] },
+                        { name: "InDesign", imports: ["Me.Artwork.Infographic", "Me.Skills.Writing"] },
                         { name: "Premiere Pro", imports: ["Me.Experience.Video Company (MBP)"] },
                         { name: "CapCut", imports: ["Me.Hobbies.Photography"] }, 
                         { name: "Davinci Resolve", imports: ["Me.Experience.Video Company (MBP)", "Me.Artwork.VFX"] },
@@ -224,7 +221,7 @@ const data = {
                         { name: "Art Game", imports: ["Me.Artwork.Art Game", "Me.Tools.C#"],
                             details:{
                                 title:"Apple & Orange",
-                                description:"A deceptively simple fruit-sorting game designed to challenge your perception. In 'Chromatic Sort,' apples appear orange and oranges glow red, forcing players to question ingrained assumptions. This game serves as a playful metaphor for real-world scenarios, urging you to think critically and not blindly accept information based solely on superficial cues.",
+                                description: "A deceptively simple fruit-sorting game coded in C# and Unity. In 'Chromatic Sort,' apples appear orange and oranges glow red, forcing players to override visual instincts with critical logic. This project utilizes game mechanics to critique the phenomenon of blind conformity in the digital age.",
                                 image:"source/11.webp",
                                 relations:["Game","C#","Programming","Game Design", "Gaming","VS Code","Undergraduate (CityU)","Digital Art"],
                                 link:"https://play.unity.com/en/games/714d196c-3f93-4985-9f51-a8c85fc18a8b/apple-orange"
@@ -320,8 +317,6 @@ const data = {
     ]
 };
 
-// --- 2. HELPER FUNCTIONS ---
-// (These are unchanged)
 function id(node) {
     return `${node.parent ? id(node.parent) + "." : ""}${node.data.name}`;
 }
@@ -344,7 +339,7 @@ function bilink(root) {
     return root;
 }
 
-// --- 3. CONFIG & COLORS ---
+
 const colorin = "blue";
 const colorout = "gold";
 const colornone = "#e8e8e8";
@@ -352,7 +347,7 @@ const width = 1000;
 const radius = width / 2;
 let selectedNode = null;
 
-// --- 4. BUILD CHART ---
+
 const visPlot = document.getElementById('vis-plot');
 const detailPage = document.getElementById('detail-page');
 const detailCloseBtn = document.getElementById('detail-close-btn');
@@ -363,7 +358,7 @@ const detailCategory = document.getElementById('detail-category');
 const detailImage = document.getElementById('detail-image');
 const relationsWrapper = document.getElementById('detail-relations-wrapper');
 const relationsList = document.getElementById('relations-list');
-const detailVisitBtn = document.getElementById('detail-visit-btn'); // NEW
+const detailVisitBtn = document.getElementById('detail-visit-btn'); 
 
 const tree = d3.cluster().size([2 * Math.PI, radius - 120]);
 const root = tree(bilink(d3.hierarchy(data)
@@ -429,7 +424,7 @@ function outed(event, d) {
     d3.selectAll(d.outgoing.map(([, t]) => t.text)).attr("fill", null).attr("font-weight", null);
 }
 
-// Helper to open the detail page (Handles content & relations)
+
 function openDetailPage(d) {
     const parentName = d.parent ? d.parent.data.name : "";
     let categoryLabel = "OTHERS";
@@ -442,12 +437,12 @@ function openDetailPage(d) {
         default: categoryLabel = "OTHERS";
     }
 
-    // Set Text Content
+    // set text content
     if(detailCategory) detailCategory.textContent = categoryLabel;
     detailTitle.textContent = d.data.details.title;
     detailDescription.textContent = d.data.details.description;
 
-    // Set Image
+    // set image
     if (d.data.details.image) {
         detailImage.src = d.data.details.image;
         detailImage.style.display = "block";
@@ -456,7 +451,7 @@ function openDetailPage(d) {
         detailImage.src = "";
     }
 
-    // Set Visit Button
+    // set visit button
     if (d.data.details.link) {
         detailVisitBtn.href = d.data.details.link;
         detailVisitBtn.style.display = "block";
@@ -465,7 +460,7 @@ function openDetailPage(d) {
         detailVisitBtn.style.display = "none";
     }
 
-    // Generate Relations Buttons
+    // relations buttons
     relationsList.innerHTML = ''; 
     if (d.data.details.relations && d.data.details.relations.length > 0) {
         relationsWrapper.style.display = 'block';
@@ -476,7 +471,6 @@ function openDetailPage(d) {
                 btn.className = 'relation-btn';
                 btn.innerHTML = `<span>Related</span>${relName}`;
                 btn.onclick = (clickEvent) => {
-                    // Update graph highlighting AND open new detail page
                     clicked(clickEvent, targetNode);
                     openDetailPage(targetNode);
                 };
@@ -487,7 +481,6 @@ function openDetailPage(d) {
         relationsWrapper.style.display = 'none';
     }
 
-    // Show the Overlay
     detailPage.style.display = 'flex';
     moreInfoBtn.style.display = 'none'; 
     document.body.classList.add('overlay-open');
@@ -502,11 +495,9 @@ function clicked(event, d) {
     selectedNode = d;
     moreInfoBtn.style.display = 'none';
 
-    // --- CLEAN SLATE: Reset all styles before highlighting new ones ---
     link.style("mix-blend-mode", null).attr("stroke-opacity", 0.1).attr("stroke", colornone).attr("stroke-width", 1);
     node.attr("opacity", 0.2).attr("fill", null).attr("font-weight", null);
 
-    // --- HIGHLIGHT NEW SELECTION ---
     d3.select(d.text).attr("font-weight", "bold").attr("fill", "black").attr("opacity", 1);
     
     d3.selectAll(d.incoming.map(p => p.path)).attr("stroke", colorin).attr("stroke-width", 2).attr("stroke-opacity", 1).raise();
@@ -515,7 +506,6 @@ function clicked(event, d) {
     d3.selectAll(d.outgoing.map(p => p.path)).attr("stroke", colorout).attr("stroke-width", 2).attr("stroke-opacity", 1).raise();
     d3.selectAll(d.outgoing.map(([, t]) => t.text)).attr("fill", colorout).attr("font-weight", "bold").attr("opacity", 1);
 
-    // Initial "More Info" Button display
     if (d.data.details) {
         const plotRect = visPlot.getBoundingClientRect();
         const x = event.clientX - plotRect.left + 15;

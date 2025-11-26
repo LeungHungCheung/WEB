@@ -238,6 +238,13 @@ nav li:first-child { font-weight: bold; padding-right: 5em; }
     margin-left: 4.5%;
     margin-top: 15px;
 }
+.person-1{    
+    text-transform: uppercase;
+    font-size: 18px;
+    font-weight: 700;
+    margin-left: 55px;
+    margin-top: 15px;
+}
 .dis, .dis-1, .dis-2 {
     font-family: Hw Nuckle, Arial, sans-serif;
     font-size: 18px;
