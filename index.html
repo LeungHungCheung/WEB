@@ -1,38 +1,55 @@
+<!--setup for the website-->
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        
+        <!--install the css file, library, user viewpoint-->
         <title>Hello World</title> 
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script src="https://d3js.org/d3.v7.min.js"></script>
-        <script src="https://player.vimeo.com/api/player.js"></script>  
+
+        <script src="https://d3js.org/d3.v7.min.js"></script>              <!--d3.js library-->
+        <script src="https://player.vimeo.com/api/player.js"></script>   <!--install vimeo player-->
+
+        <!--css file-->
         <link href="style.css" rel="stylesheet" />
         <link href="data.css" rel="stylesheet" />
+
+        <!--pre load vimeo player-->
         <link rel="preconnect" href="https://player.vimeo.com">
         <link rel="preconnect" href="https://i.vimeocdn.com">
         <link rel="preconnect" href="https://f.vimeocdn.com">
 
     
     </head>
+
+    <!--main function for the entire web-->
     <body>
-        <div class="custom-cursor" id="cursor"></div>
-        <button class="mute-toggle" id="muteToggle">Sound On</button>
+        <div class="custom-cursor" id="cursor"></div>                 <!--for setup custom cursor -->
+        <button class="mute-toggle" id="muteToggle">Sound On</button> <!--for sound on and off of the autoplay vimeo video-->
         <div class="autoplay-video">
-            <div class="name-overlay">
-                <h1>MACK.Zzz</h1>
-            </div>
+            <div class="name-overlay"> <h1>MACK.Zzz</h1> </div>
             
+            <!--use iframe to embed external content, such as youtube-->
+            <!--autoplay , muted, loop, controls= 0 (hide vimeo control), playsinline (for mobile play), title (for screen reader)-->
+            <!--remove border-->
+            <!--allow, giving permission-->
+            <!--referrerpolicy, security policy-->
             <iframe src="https://player.vimeo.com/video/1136815326?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;muted=1&amp;loop=1&amp;controls=0&amp;playsinline=1" 
-        width="100%" 
-        height="100%" 
-        frameborder="0" 
-        allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
-        referrerpolicy="strict-origin-when-cross-origin" 
-        title="showreels">
+            width="100%" 
+            height="100%" 
+            frameborder="0" 
+            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
+            referrerpolicy="strict-origin-when-cross-origin" 
+            title="showreels">
 </iframe>
         </div>
 
+        <!--make the structure ingood manner-->
+        <!--nav, used on navigation link-->
+        <!--ul, define list of item, bullet point-->
+        <!--li, collective list-->
+        <!--span, use for styling , apply css-->
         <nav>  
             <ul>
                 <li class="home-container"><button id="home" class="homeclass">

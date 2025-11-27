@@ -1,5 +1,6 @@
+/*define reuseable variable*/
 :root {
-    /* Dark theme (default) */
+    /* dark theme (default) */
     --bg-color: #000000;
     --text-color: #ffffff;
     --cursor-color: rgba(255, 255, 255, 1);
@@ -12,8 +13,9 @@
     box-sizing: border-box;
 }
 
+/*define another set of reuseable variable*/
 [data-theme="light"] {
-    /* Light theme */
+    /* light theme */
     --bg-color: #ffffff;
     --text-color: #000000;
     --cursor-color: rgba(0, 0, 0, 1);
@@ -22,10 +24,12 @@
     --nav-bg: #ffffff;
 }
 
+/*disable default cursor, rely on  custom cursor*/
 * {
-    cursor: none !important; 
+    cursor: none !important; /*highest priority of everything*/
 }
 
+/*smooth scrolling and basic style*/
 html, body {
     scroll-behavior: smooth;
     color: var(--text-color);
@@ -39,7 +43,8 @@ body {
     position: relative;
 }
 
-/* --- MAIN TYPOGRAPHY & LAYOUT --- */
+/* layout and style for each text and img */
+/*z-index, to control the layer of each elements, to make my custom cursor always on top of everything, like the default one*/
 .always {
     margin-top: 24%;
     z-index: 9999;
@@ -51,6 +56,7 @@ body {
     line-height: 100%;
 }
 
+/*create line for seperating different section*/
 .horizontal-line, .horizontal-line-d {
     border-bottom: 2.5px solid var(--text-color);
     width: 100%;
@@ -60,17 +66,17 @@ body {
     margin-bottom: 100px;
 }
 
-/* --- VIDEO SECTION --- */
+/* video  */
 .autoplay-video {
-    position: relative;  
+    position: relative;  /*change according to the document flow*/
     width: 100%;
     height: 100vh;
 }
 .autoplay-video iframe {
-    pointer-events: none;
+    pointer-events: none; /* disable any event, such as mouse click, hover */
 }
 .name-overlay {
-    position: absolute;
+    position: absolute; /*fix the position to nearest positioned ancestor , e.g. body, html*/
     top: 20px; 
     left: 2%; 
     z-index: 2; 
@@ -83,7 +89,7 @@ body {
     margin-bottom: 20px;
 }
 
-/* --- CURSOR & UI --- */
+/* custom cursor */
 .custom-cursor {
     position: fixed;
     width: 20px;
@@ -91,32 +97,36 @@ body {
     background: var(--cursor-color);
     border-radius: 50%;
     pointer-events: none;
-    z-index: 2147483647;
+    z-index: 2147483647; /*always on top (max value)*/
     top: 0;
     left: 0;
-    transform: translate(-50%, -50%);
-    transition: background 0.3s ease;
-    filter: drop-shadow(0 0 3px rgba(0,0,0,0.3));
+    transform: translate(-50%, -50%); /*center the cursor dot*/
+    transition: background 0.3s ease; /*make changes to background color*/
+    filter: drop-shadow(0 0 3px rgba(0,0,0,0.3));   /* add deth effect, make it stand out*/
 }
+
+/*change the opacity when it is over any element*/
 .custom-cursor.transparent {
     background: var(--cursor-transparent);
 }
+
 .mute-toggle {
     position: absolute;
     background: none;
     border: none;
-    outline: none;
+    outline: none;/*disable outline of button when user clicking it */
     color: white;
+    padding:10px 10px;/*make the click arear bigger*/
     text-align: center;
     font-family: Hw Nuckle, Arial, sans-serif;
     font-size: 1em;
-    cursor: pointer;
+    cursor: pointer;/*change mouse icon to symbol, tell user it is a button, although it does not like a button*/
     top: 55px;
     left: 94%;
     z-index: 9999;
 }
 
-/* --- NAVIGATION --- */
+/* nav bar */
 .homeclass, .nav-item, .time-display {
     position: absolute;
     background: none;
@@ -129,17 +139,19 @@ body {
     cursor: pointer;
     z-index: 9999;
 }
+
 .homeclass { font-size: 16px; }
-.time-display { padding: 8px 12px; position: static; } /* Reset absolute for time */
+
+.time-display { padding: 8px 12px; position: static; } /* static(default), not affected by top, bottm, right , left , position according to the page */
 
 nav {
-    position: -webkit-sticky;
-    position: sticky;
+    position: -webkit-sticky;/*sticky for old browser*/
+    position: sticky; /*troggle between relative and fixed, by user scrolling action*/
     top: 0;
     left: 0;
     right: 0; 
     background: var(--nav-bg);
-    transition: top 0.5s ease-in-out, background-color 0.3s ease;
+    transition: top 0.5s ease-in-out, background-color 0.3s ease; 
     z-index: 2147483646;
     padding: 15px 20px;
 }
@@ -147,7 +159,7 @@ nav {
 nav ul {
     display: flex;
     align-items: center;
-    list-style-type: none;
+    list-style-type: none; /*remove the marker of list item, such as 1., 2., 3.*/
     gap: 7em;
     margin: 0;
     padding:0;
@@ -172,8 +184,8 @@ nav li:first-child { font-weight: bold; padding-right: 5em; }
     transition: all 0.3s ease;
     display: flex;
     align-items: center;
-    justify-content: center;
-    border: 1px solid var(--text-color);
+    justify-content: center; /*control item align with main aixs */
+    border: 1px solid var(--text-color );
 }
 .theme-toggle:hover { transform: scale(1.1); }
 .theme-icon {
@@ -185,7 +197,7 @@ nav li:first-child { font-weight: bold; padding-right: 5em; }
     display: block;
 }
 
-/* --- QUOTE & ABOUT --- */
+/* quote */
 .text-container {
     margin-top: 5%;
     margin-left: 10%;
@@ -200,9 +212,9 @@ nav li:first-child { font-weight: bold; padding-right: 5em; }
     filter: grayscale(100%);
     transition: filter 0.5s ease;
     z-index: 9999;
-    display: inline-block;
+    display: inline-block; /*create grid within text*/
     vertical-align: middle;
-    box-sizing: border-box;
+    box-sizing: border-box; /*padding and border will follow the same width and height*/
     width: 398.5px;
     height: 499px;
     margin-left: 8%;
@@ -212,25 +224,28 @@ nav li:first-child { font-weight: bold; padding-right: 5em; }
 .about-info { margin-top: 50px; }
 .tag {
     z-index: 0;
-    text-transform: uppercase;
+    text-transform: uppercase; /*make sure all text are in uppercase, although lowercase is typed in the html*/
     font-family: Hw Nuckle, Arial, sans-serif;
     font-size: 6vw;
     font-weight: 700;
     margin-left: 4.5%;
 }
 .tag span {
-    display: block; 
+    display: block; /*different with inline-block, it is up and down, not inside text*/
     margin-bottom: 5px; 
+    /*adding scroll animation to the text*/
     animation: text-appear both;
-    animation-timeline: view();
-    animation-range: entry 10% cover 100vh;
-}
+    animation-timeline: view(); /*according to timeline*/
+    animation-range: entry 10% cover 100vh; /*when scroll in to 10% of that section , the animation start*/
+} /*cover, define the end point of the animation, when user's view point is covered the entire page, it stops*/
+
+/*set the animation*/
 @keyframes text-appear {
     from { opacity: 0; transform: translateY(100px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
-.content { display: flex; margin-top: 100px; }
+.content { display: flex; margin-top: 100px; } /*flex is just place item side by side*/
 .person {    
     text-transform: uppercase;
     font-size: 18px;
@@ -254,7 +269,7 @@ nav li:first-child { font-weight: bold; padding-right: 5em; }
 .dis-1 { margin-left: 18.7%; }
 .dis-2 { margin-left: 14.7%; }
 
-/* --- WORK SECTION --- */
+/* work*/
 .ft {
     margin-top: 50px;
     z-index: 9999;
@@ -294,12 +309,15 @@ nav li:first-child { font-weight: bold; padding-right: 5em; }
     margin-left: 3em;
     height: 540px;
 }
-.mv-pic { width: 960px; } /* Fixed typo "960x" */
+
+/*resize the image*/
+.mv-pic { width: 960px; } 
 .mv-pic-1 { width: 960px; }
+/*hover effect to all img*/
 .mv-pic:hover, .mv-pic-1:hover { filter: grayscale(0%); }
 
 
-/* --- VISUALIZATION SECTION --- */
+/* visualization*/
 #vis-plot {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     display: grid;
@@ -310,7 +328,7 @@ nav li:first-child { font-weight: bold; padding-right: 5em; }
     height: 100vh;
     position: relative; 
     overflow: hidden; 
-    background-color: white; /* Viz background */
+    background-color: white; 
 }
 #vis-plot svg { cursor: default; width: 100%; height: 100%; }
 #vis-plot svg text { font-weight: bold !important; font-size: 12px; }
@@ -326,7 +344,7 @@ nav li:first-child { font-weight: bold; padding-right: 5em; }
     line-height: 100%;
 }
 
-/* More Info Button on Viz */
+/* more info button for the visualization */
 #more-info-btn {
     position: absolute; 
     display: none; 
@@ -344,7 +362,7 @@ nav li:first-child { font-weight: bold; padding-right: 5em; }
 #more-info-btn:hover { background: white; color: black; }
 
 
-/* --- DETAIL PAGE OVERLAY (POPUP) --- */
+/* pop up detail page */
 #detail-page {
     position: fixed; 
     top: 0;
@@ -361,24 +379,23 @@ nav li:first-child { font-weight: bold; padding-right: 5em; }
     box-sizing: border-box;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
-.overlay-open { overflow: hidden; }
+.overlay-open { overflow: hidden; } /*avoid content exceed boundaries, they will be clipped  */
 
 .detail-content {
-    
      
     padding: 40px;
     width: 600px;
     max-width: 90%;
     max-height: 90vh;
     overflow-y: auto;
-    position: relative; /* Context for absolute positioning */
+    position: relative; 
 }
 
-/* Close Button */
+/* close button*/
 #detail-close-btn {
     position: absolute;
     top: 5vw;
-    right: 5vw; /* Positioned relative to screen, not content box */
+    right: 5vw; 
     background: transparent;
     border: 1px solid white;
     color: white;
@@ -390,14 +407,14 @@ nav li:first-child { font-weight: bold; padding-right: 5em; }
 }
 #detail-close-btn:hover { background: white; color: black; }
 
-/* --- SIDE-BY-SIDE HEADER LAYOUT --- */
+
 .detail-top-section {
     display: flex;
-    gap: 20px; /* Gap between title box and visit button */
+    gap: 20px; /*gap between visit and project */
     margin-bottom: 20px;
 }
 
-/* Box 1: Title Box */
+/*title*/
 .detail-header {
     border: 1px solid white;
     padding: 20px;
@@ -416,15 +433,13 @@ nav li:first-child { font-weight: bold; padding-right: 5em; }
     font-weight: bold;
 }
 
-/* Box 2: Visit Button (Box style) */
+/* visit*/
 #detail-visit-btn {
-    display: none; /* JS toggles this */
+    display: none;
     
-    /* Box Look */
     border: 1px solid white;
     padding: 0px 30px;
     
-    /* Center Text */
     align-items: center;
     justify-content: center;
     
@@ -437,16 +452,17 @@ nav li:first-child { font-weight: bold; padding-right: 5em; }
     text-transform: uppercase;
     cursor: pointer;
     transition: all 0.3s ease;
-    flex-shrink: 0; /* Don't shrink */
+    flex-shrink: 0; /* disable  shrink */
 }
-/* Force flex when visible to center text */
+
+/* force flex when visible to center text */
 #detail-visit-btn[style*="display: block"] {
     display: flex !important;
 }
 #detail-visit-btn:hover { background-color: white; color: black; }
 
 
-/* Detail Content Body */
+/* detail content */
 .detail-img {
     width: 100%;
     max-height: 540px;
@@ -460,11 +476,11 @@ nav li:first-child { font-weight: bold; padding-right: 5em; }
     line-height: 1.6;
     max-width: 600px;
     max-height: 60vh;
-    overflow-y: auto;
+    overflow-y: auto; /*allow over flow on y axis*/
     font-weight: bold; 
 }
 
-/* Relations Section */
+/* relation */
 #detail-relations-wrapper {
     margin-top: 40px;
     width: 100%;
@@ -501,7 +517,7 @@ nav li:first-child { font-weight: bold; padding-right: 5em; }
     text-transform: uppercase;
 }
 
-/* --- CONTACT SECTION --- */
+/* contact */
 .find {
     text-align: center;
     margin-top: 10%;
@@ -545,12 +561,12 @@ nav li:first-child { font-weight: bold; padding-right: 5em; }
     font-family: Hw Nuckle, Arial, sans-serif;
 }
 
-/* =========================================
-   RESPONSIVE DESIGN (TABLET & MOBILE)
-   ========================================= */
-
+/* set up for phone deice */
+/*another  set of style*/
+/*Media Query*/
+/*apply style in {}*/
 @media screen and (max-width: 1024px) {
-    /* --- 1. GENERAL LAYOUT FIXES --- */
+    
     html, body {
         overflow-x: hidden; 
         width: 100%;
@@ -568,19 +584,19 @@ nav li:first-child { font-weight: bold; padding-right: 5em; }
         flex: auto;
     }
 
-    /* --- 2. NAVIGATION BAR FIX (Sticky + Scrollable) --- */
+    
     nav {
         padding: 15px 20px;
         
-        /* MAKE IT STICKY */
-        position: -webkit-sticky; /* Required for Safari/iOS */
+        
+        position: -webkit-sticky; 
         position: sticky;
-        top: 0;                   /* Sticks to the very top */
-        z-index: 9000;            /* Sits above page content */
+        top: 0;                   
+        z-index: 9000;            
         
         background: var(--nav-bg);
         width: 100%;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Optional separator */
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
     }
     
     nav ul {
@@ -614,13 +630,13 @@ nav li:first-child { font-weight: bold; padding-right: 5em; }
         display: block;
     }
 
-    /* --- 3. WORK SECTION FIX (IMAGE -> WORDS ORDER) --- */
+    
     .work-overall {
         flex-direction: column; 
         margin-bottom: 60px;
     }
 
-    /* Image on TOP */
+    
     .work-overall > a {
         order: -1; 
         width: 100%;
@@ -629,13 +645,13 @@ nav li:first-child { font-weight: bold; padding-right: 5em; }
     }
 
     .mv-pic, .mv-pic-1 {
-        width: 100% !important; 
+        width: 100% !important;  
         height: auto;
         margin-left: 0;
         margin-top: 0;
     }
 
-    /* Words on BOTTOM */
+    
     .common0, .common1, .common-1 {
         order: 1;
         margin-left: 0;
@@ -667,7 +683,7 @@ nav li:first-child { font-weight: bold; padding-right: 5em; }
         word-spacing: normal;
     }
 
-    /* --- 4. ABOUT SECTION FIX --- */
+    
     .content {
         flex-direction: column;
         margin-top: 50px;
@@ -694,7 +710,7 @@ nav li:first-child { font-weight: bold; padding-right: 5em; }
         margin-left: 5%;
     }
 
-    /* --- 5. FIND ME / CONTACT IMAGE FIX --- */
+    
     .find { margin-top: 50px; }
 
     .find-container {
@@ -737,7 +753,6 @@ nav li:first-child { font-weight: bold; padding-right: 5em; }
         word-break: break-all;
     }
 
-    /* --- 6. DETAIL POPUP FIX --- */
     .detail-content {
         width: 95%;
         padding: 20px;

@@ -1,14 +1,16 @@
-
+// time get function 
 function updateTime() {
     const now = new Date();
-    const timeString = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit',timeZoneName: 'short' });
-    document.getElementById('current-time').textContent = timeString;
+    const timeString = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit',timeZoneName: 'short' }); //give time based local computer
+    //en-US, time format
+    document.getElementById('current-time').textContent = timeString; // return value to the time item
 }
 
 
 updateTime();
-setInterval(updateTime, 1000);
+setInterval(updateTime, 1000); // update time every second // use for repeatly execute function
 
+//setting up variable for js 
 const cursor = document.getElementById('cursor');
 const video = document.getElementById('backgroundVideo');
 const muteBtn = document.getElementById('muteToggle');
@@ -19,13 +21,13 @@ const moreClick = document.getElementById('moree');
 let vimeoPlayer;
 
 
-        // Move cursor
+        // move cursor
         document.addEventListener('mousemove', (e) => {
             cursor.style.left = e.clientX + 'px';
             cursor.style.top = e.clientY + 'px';
         });
         
-        // Hide cursor when leaving window
+        // hide cursor when leaving window
         document.addEventListener('mouseleave', () => {
             cursor.style.opacity = '0';
         });
@@ -34,12 +36,12 @@ let vimeoPlayer;
             cursor.style.opacity = '1';
         });
         
-        // Reset to solid white by default
+        // reset to solid white by default
         cursor.classList.remove('transparent');
         
-        // Only make transparent when hovering over specific elements
+        // only make transparent when hovering over specific elements(I set into all)
         const hoverElements = document.querySelectorAll(
-            '.more-work,ul, body, video, h1, .nav, .autoplay-video,.video-container,.name-overlay,.text-container,.work-overall,.common,.content,.find-container,.home-container,.mute-toggle,.time-display,.homeclass,.nav-item,.theme-toggle-container,.theme-toggle,.theme-icon,.ft,.about-info,.find,.find-me,.legal,.title,.info,.info-1,.mv-pic,.mv-pic-1,.my-pic,.creative,.hk,.person,.dis,.dis-1,.dis-2,.sm ,.job,.cv,.email'
+            '.always, .horizontal-line, .horizontal-line-d, .autoplay-video, .name-overlay, .custom-cursor, .custom-cursor.transparent, .mute-toggle, .homeclass, .nav-item, .time-display, .home-container, .theme-toggle-container, .theme-toggle, .theme-icon, .text-container, .quote, .my-pic, .about-info, .tag, .content, .person, .person-1, .dis, .dis-1, .dis-2, .ft, .work-overall, .common0, .common1, .common-1, .number, .number-1, .title, .title-1, .help, .help-1, .firm, .firm-1, .firm-2, .info, .info-1, .mv-pic, .mv-pic-1, .vs, .detail-content, .detail-header, .detail-label, .detail-top-section, .detail-img, .relations-header, .relation-btn, .find, .stack, .find-container, .sm, .job, .cv, .email, .legal, .overlay-open, #cursor, #backgroundVideo, #muteToggle, #themeToggle, #home, #moree, #current-time, #vis-plot, #more-info-btn, #detail-page, #detail-close-btn, #detail-category, #detail-title, #detail-description, #detail-visit-btn, #detail-image, #detail-relations-wrapper, #relations-list, #pic-dark, #pic-white'
         );
         
         hoverElements.forEach(element => {
@@ -53,25 +55,25 @@ let vimeoPlayer;
         });
 
     if (vimeoIframe && muteBtn) {
-    // Initialize the Vimeo Player
+    // install video player
     vimeoPlayer = new Vimeo.Player(vimeoIframe);
     
 
-    // Set initial button text based on the iframe's `muted=1` parameter
-    // Since `muted=1` is in the URL, it starts muted.
+    // set initial button text based on the iframe's `muted=1` parameter
+    // mute at first
     muteBtn.textContent = 'Sound On';
 
     muteBtn.addEventListener('click', function() {
         vimeoPlayer.getVolume().then(function(volume) {
             if (volume === 0) {
-                // If currently muted, unmute (set volume to 1)
+                // if currently muted, unmute (set volume to 1)
                 vimeoPlayer.setVolume(1).then(function() {
                     muteBtn.textContent = 'Sound Off';
                 }).catch(function(error) {
                     console.error('Error unmuting video:', error);
                 });
             } else {
-                // If currently unmuted, mute (set volume to 0)
+                // if currently unmuted, mute (set volume to 0)
                 vimeoPlayer.setVolume(0).then(function() {
                     muteBtn.textContent = 'Sound On';
                 }).catch(function(error) {
@@ -84,7 +86,7 @@ let vimeoPlayer;
     });
 } 
 
-// Check for saved theme or prefer-color-scheme
+// check for saved theme or prefer-color-scheme
 function getPreferredTheme() {
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme) {
@@ -93,57 +95,56 @@ function getPreferredTheme() {
     return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
 }
 
-// Set theme
+// set theme
 function setTheme(theme) {
     document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem('theme', theme);
     
-    // No need to update icon text anymore - CSS handles it automatically!
 }
 
-// Initialize theme
+// install theme
 const currentTheme = getPreferredTheme();
 setTheme(currentTheme);
 
-// Toggle theme on button click
+// toggle theme buuton
 themeToggle.addEventListener('click', () => {
     const newTheme = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
     setTheme(newTheme);
 });
 
-// Listen for system theme changes
+// listen for system theme changes
 window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', (e) => {
-    if (!localStorage.getItem('theme')) { // Only if user hasn't set a preference
+    if (!localStorage.getItem('theme')) { // only if user hasn't set a preference
         setTheme(e.matches ? 'light' : 'dark');
     }
 });
 
 home.addEventListener('click', function(){
-    // Smooth scroll to top
+    // smooth scroll to top
     window.scrollTo({
         top: 0,
         behavior: 'smooth'
     });
     
-    // Navigate to index.html after scroll completes (optional)
+    // scroll to the top and refresh the website
     setTimeout(() => {
         window.location.href = "index.html";
-    },500); // Adjust timing to match scroll duration
+    },500); 
 });
 
-// Detect touch device
+// detect touch device
 function isTouchDevice() {
     return (('ontouchstart' in window) ||
        (navigator.maxTouchPoints > 0) ||
        (navigator.msMaxTouchPoints > 0));
 }
 
-// If it's a phone/tablet, hide the custom cursor and revert to default behavior
+// hide cursor for phone
 if (isTouchDevice()) {
     const cursor = document.getElementById('cursor');
     if (cursor) cursor.style.display = 'none';
     
-    // Reset cursor styles for all elements to auto
+    // reset cursor styles to auto
     document.body.style.cursor = 'auto';
     const allElements = document.querySelectorAll('*');
     allElements.forEach(el => {
