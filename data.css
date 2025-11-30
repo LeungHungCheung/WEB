@@ -6,6 +6,7 @@
     min-height: 100vh;
     
     margin: 0;
+    padding-bottom: 15px;
     width: 100vw;
     height: 100vh;
     position: relative; 
@@ -21,7 +22,7 @@
 
 #vis-plot svg text {
     font-weight: bold !important;
-    font-size: 12px; 
+    font-size: 16px; 
 }
 .tooltip {
     position: absolute;
@@ -133,27 +134,27 @@
     overflow: hidden;
 }
 
-/* --- VISUALIZATION LEGEND --- */
+
 .viz-legend {
     position: absolute;
     bottom: 30px;
     left: 30px;
-    z-index: 90; /* Above the graph, below the popup */
+    z-index: 90; 
     
-    /* Glassmorphism effect matching your theme */
-    background: rgba(0, 0, 0, 0.6); /* Semi-transparent dark */
+    
+    background: rgba(0, 0, 0, 0.6); 
     border: 1px solid var(--text-color);
     padding: 15px;
     border-radius: 4px;
     
-    /* Text Styling */
+    
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color: white; /* Always white if background is dark, or use var(--text-color) */
+    color: white; 
     font-size: 12px;
-    pointer-events: none; /* Lets clicks pass through to the graph behind it */
+    pointer-events: none; 
 }
 
-/* Adjust background for light theme if needed */
+
 [data-theme="light"] .viz-legend {
     background: rgba(255, 255, 255, 0.8);
     color: black;
@@ -180,7 +181,7 @@
     margin-bottom: 0;
 }
 
-/* Color Dots */
+
 .dot {
     width: 10px;
     height: 10px;
@@ -191,15 +192,15 @@
 
 .dot.yellow {
     background-color: gold;
-    box-shadow: 0 0 8px gold; /* Glowing effect */
+    box-shadow: 0 0 8px gold; 
 }
 
 .dot.blue {
     background-color: blue;
-    box-shadow: 0 0 8px blue; /* Glowing effect */
+    box-shadow: 0 0 8px blue; 
 }
 
-/* Hide legend on mobile if it covers too much space */
+
 @media screen and (max-width: 768px) {
     .viz-legend {
         bottom: 10px;

@@ -6,19 +6,19 @@ const data = {
             name: "School",
             children: [
                 { 
-                    name: "Undergraduate (CityU)", 
+                    name: "Undergraduate", 
                     imports: [
                         "Me.Artwork.Digital Art", "Me.Artwork.Animation", "Me.Artwork.VFX", "Me.Artwork.Physical Computing",
                         "Me.Skills.Design", "Me.Skills.UI/UX Design", "Me.Skills.Game Design", "Me.Skills.Programming",
-                        "Me.Tools.Processing", "Me.Projects.Creative Coding", "Me.Projects.Social Engagement Exhibition"
+                        "Me.Tools.Processing", "Me.Projects.Creative Coding", "Me.Projects.Social Engaged Practice"
                     ],
                     details: {
-                        title: "Undergraduate (CityU)",
+                        title: "Undergraduate",
                         description: "Currently studying at the School of Creative Media at City University of Hong Kong. This program combines art, technology, and critical thinking, allowing me to explore digital art, physical computing, game design, and more."
                     }
                 },
                 { 
-                    name: "Associate Degree (HKCC)", 
+                    name: "Associate Degree", 
                     imports: [
                         "Me.Tools.C++", "Me.Tools.C", "Me.Tools.Arduino", "Me.Skills.Electronic Connection", 
                         "Me.Skills.Complex Maths", "Me.Skills.Problem Solving", "Me.Artwork.Physical Computing"
@@ -33,58 +33,58 @@ const data = {
         {
             name: "Artwork",
             children: [
-                { name: "Painting", imports: ["Me.Hobbies.Drawing","Me.School.Undergraduate (CityU)"],
+                { name: "Painting", imports: ["Me.Hobbies.Drawing","Me.School.Undergraduate"],
                     details: {
                         title: "Painting",
                         description: "Completed one painting course in CityU back to the time in my first year. It was about pencil drawing, life drawing and sketching which equipped me with basic painting skills and knowledge",
-                        relations:["Drawing","Undergraduate (CityU)"]
+                        relations:["Drawing","Undergraduate"]
                     }
                  },
-                { name: "Sculpture", imports: ["Me.Hobbies.Crafting","Me.School.Undergraduate (CityU)"],
+                { name: "Sculpture", imports: ["Me.Hobbies.Crafting","Me.School.Undergraduate"],
                     details:{
                         title: "Sculpture",
                         description:"Completed one sculpture course in CityU in my first year. It was all material based, it teach me how to adopt different situation to create unique sculpture.",
                         image:"source/14.webp",
-                        relations:["Crafting","Undergraduate (CityU)"]
+                        relations:["Crafting","Undergraduate"]
                     }
                 },
-                { name: "Digital Art", imports: ["Me.Tools.Photoshop", "Me.Tools.Illustration","Me.School.Undergraduate (CityU)"],
+                { name: "Digital Art", imports: ["Me.Tools.Photoshop", "Me.Tools.Illustration","Me.School.Undergraduate"],
                     details:{
                         title:"Digital Art",
                         description:"A synthesis of digital painting, photo manipulation, and graphic design. Focusing on composition, color theory, and the precise execution of visual ideas using Photoshop and Illustrator.",
-                        relations: ["Photography", "Infographic", "Art Game","Undergraduate (CityU)"]
+                        relations: ["Photography", "Infographic", "Art Game","Undergraduate"]
                     }
                  },
-                { name: "Photography", imports: ["Me.Skills.Basic Camera Operation", "Me.Tools.LightRoom","Me.School.Undergraduate (CityU)"],
+                { name: "Photography", imports: ["Me.Skills.Camera Operation", "Me.Tools.LightRoom","Me.School.Undergraduate"],
                     details:{
                         title:"Photography",
                         description:"The art of capturing moments with technical precision. Focusing on visual storytelling through composition, exposure control, and advanced post-processing in Lightroom.",
-                        relations:["Photo Series","Undergraduate (CityU)"]
+                        relations:["Photo Series","Undergraduate"]
                     }
                 },
-                { name: "Art Photography", imports: ["Me.Skills.Basic Camera Operation", "Me.Tools.Photoshop","Me.School.Undergraduate (CityU)"] },
-                { name: "B&W Photography", imports: ["Me.Tools.LightRoom","Me.School.Undergraduate (CityU)"] },
-                { name: "Infographic", imports: ["Me.Tools.InDesign", "Me.Skills.Data Analysis","Me.School.Undergraduate (CityU)"],
+                { name: "Art Photography", imports: ["Me.Skills.Camera Operation", "Me.Tools.Photoshop","Me.School.Undergraduate"] },
+                { name: "B&W Photography", imports: ["Me.Tools.LightRoom","Me.School.Undergraduate"] },
+                { name: "Infographic", imports: ["Me.Tools.InDesign", "Me.Skills.Data Analysis","Me.School.Undergraduate"],
                     details:{
                         title:"Infographic",
                         description:"Creation of data visualizations and illustrative materials that simplify complex subjects. This practice relies on strong data analysis skills paired with design precision in Indesign to produce highly structured and concise informational graphics.",
                         image: "source/12.webp",
                         link: "https://drive.google.com/file/d/19usUeSW3dAYvDcQidRO0e5kuyVlMPBcm/view?usp=sharing",
-                        relations:["UI/UX Design","Undergraduate (CityU)"]
+                        relations:["UI/UX Design","Undergraduate"]
                     }
                 },
                 { name: "Animation", imports: ["Me.Tools.After Effect", "Me.Tools.Premiere Pro"] },
                 { name: "VFX", imports: ["Me.Tools.After Effect", "Me.Tools.Davinci Resolve"] },
                 { 
                     name: "Game", 
-                    imports: ["Me.Skills.Game Design", "Me.Tools.C#", "Me.Skills.Programming","Me.School.Undergraduate (CityU)"],
+                    imports: ["Me.Skills.Game Design", "Me.Tools.C#", "Me.Skills.Programming","Me.School.Undergraduate"],
                     details: {
                         title: "Art Game",
                         description: "Exploring the medium of games as a form of artistic expression. This involves using C# and Unity to create interactive experiences that prioritize concept, aesthetic, and critical thought over traditional gameplay mechanics.",
                         relations:["Art Game"]
                     }
                 },
-                { name: "Physical Computing", imports: ["Me.Tools.Arduino", "Me.Skills.Electronic Connection","Me.School.Undergraduate (CityU)"],
+                { name: "Physical Computing", imports: ["Me.Tools.Arduino", "Me.Skills.Electronic Connection","Me.School.Undergraduate"],
                     details: {
                         title: "Physical Computing",
                         description: "Physical Computing explores how humans communicate with the digital world through physical interactions, utilizing sensors and effectors to translate environmental sensations into understandable forms. It focuses on building interactive systems that sense and respond to the physical world via embedded systems and open-source hardware platforms like Arduino. This practice increasingly integrates modern technologies, including GenAI tools for conceptualization and rapid prototyping techniques such as laser cutting and Wizard-of-Oz methods, to create tangible works that bridge the physical and digital realms.",
@@ -96,37 +96,37 @@ const data = {
         {
                     name: "Skills",
                     children: [
-                        { name: "Programming", imports: ["Me.Tools.VS Code", "Me.Tools.GitHub", "Me.Tools.Python", "Me.Tools.JavaScript","Me.School.Associate Degree (HKCC)","Me.School.Undergraduate (CityU)"] ,
+                        { name: "Programming", imports: ["Me.Tools.VS Code", "Me.Tools.GitHub", "Me.Tools.Python", "Me.Tools.JavaScript","Me.School.Associate Degree","Me.School.Undergraduate"] ,
                             details: {
                         title: "Programming",
                         description: "Programming serves as my bridge between logic and creative expression, spanning both physical and digital realms. Proficient in C++ and Arduino for hardware interaction, I simultaneously utilize JavaScript and CSS to craft immersive websites, dynamic visualizations, and interactive games, effectively translating technical code into engaging user experiences.",
                         relations:["Arduino","Art Game","Creative Coding","Personal Website","Sustainable Arduino"]
                     }
                         },
-                        { name: "Design", imports: ["Me.Tools.Figma", "Me.Tools.Photoshop", "Me.Tools.Illustration","Me.School.Undergraduate (CityU)"] },
+                        { name: "Design", imports: ["Me.Tools.Figma", "Me.Tools.Photoshop", "Me.Tools.Illustration","Me.School.Undergraduate"] },
                         { name: "Communication", imports: ["Me.Experience.Volunteer Work", "Me.Languages.English", "Me.Languages.Cantonese"] },
-                        { name: "Project Management", imports: ["Me.Experience.Video Company (MBP)", "Me.Projects.Social Engagement Exhibition","Me.School.Undergraduate (CityU)"] },
-                        { name: "Data Analysis", imports: ["Me.Tools.Python", "Me.Tools.DeepSeek","Me.School.Associate Degree (HKCC)","Me.School.Undergraduate (CityU)"] },
-                        { name: "Public Speaking", imports: ["Me.Experience.Student Helper", "Me.Experience.Volunteer Work","Me.School.Undergraduate (CityU)"] },
+                        { name: "Project Management", imports: ["Me.Experience.Video Company (MBP)", "Me.Projects.Social Engaged Practice","Me.School.Undergraduate"] },
+                        { name: "Data Analysis", imports: ["Me.Tools.Python", "Me.Tools.DeepSeek","Me.School.Associate Degree","Me.School.Undergraduate"] },
+                        { name: "Public Speaking", imports: ["Me.Experience.Student Helper", "Me.Experience.Volunteer Work","Me.School.Undergraduate"] },
                         { name: "Writing", imports: ["Me.Tools.InDesign", "Me.Experience.Freelance"] },
-                        { name: "Basic Camera Operation", imports: ["Me.Experience.Video Company (MBP)", "Me.Artwork.Photography"] },
-                        { name: "Problem Solving", imports: ["Me.School.Associate Degree (HKCC)", "Me.Projects.Sustainable Arduino","Me.School.Undergraduate (CityU)"] },
-                        { name: "Teamwork", imports: ["Me.Experience.Video Company (MBP)", "Me.Experience.Music Company (JLMusic)","Me.School.Undergraduate (CityU)"] },
-                        { name: "UI/UX Design", imports: ["Me.Tools.Figma", "Me.Projects.Personal Website", "Me.Projects.Art Game","Me.School.Undergraduate (CityU)"],
+                        { name: "Camera Operation", imports: ["Me.Experience.Video Company (MBP)", "Me.Artwork.Photography"] },
+                        { name: "Problem Solving", imports: ["Me.School.Associate Degree", "Me.Projects.Sustainable Arduino","Me.School.Undergraduate"] },
+                        { name: "Teamwork", imports: ["Me.Experience.Video Company (MBP)", "Me.Experience.Music Company (JLMusic)","Me.School.Undergraduate"] },
+                        { name: "UI/UX Design", imports: ["Me.Tools.Figma", "Me.Projects.Personal Website", "Me.Projects.Art Game","Me.School.Undergraduate"],
                             details:{
                                 title:"UI/UX",
                                 description:"UI/UX Design focuses on crafting intuitive and visually compelling digital experiences. I utilize Figma for wireframing and high-fidelity prototyping to map out user journeys, and leverage platforms like Wix Studio to translate these conceptual designs into functional, responsive web layouts that prioritize both aesthetics and usability.",
                                 image:"source/18.webp",
                                 link:"https://www.figma.com/design/zRyDrgtesu4YTydRflXs81/UX-UI-Assignment?node-id=2-3&t=8x316ig0dZzw5gMr-1",
-                                relations:["Digital Art","Programming","Personal Website","Figma","Undergraduate (CityU)"]
+                                relations:["Digital Art","Programming","Personal Website","Figma","Undergraduate"]
                             }
                          },
-                        { name: "Leadership", imports: ["Me.Experience.Student Helper", "Me.Projects.Social Engagement Exhibition","Me.School.Undergraduate (CityU)"] },
-                        { name: "AI Use", imports: ["Me.Tools.DeepSeek", "Me.Tools.Python","Me.School.Undergraduate (CityU)"] },
-                        { name: "Electronic Connection", imports: ["Me.Tools.Arduino", "Me.Projects.Sustainable Arduino","Me.School.Associate Degree (HKCC)"] },
-                        { name: "Game Design", imports: ["Me.Tools.C#", "Me.Artwork.Art Game","Me.School.Undergraduate (CityU)"] },
-                        { name: "Floor Plan Drawing", imports: ["Me.Tools.AutoCAD","Me.School.Associate Degree (HKCC)"] },
-                        { name: "Complex Maths", imports: ["Me.School.Associate Degree (HKCC)", "Me.Tools.C++"] }
+                        { name: "Leadership", imports: ["Me.Experience.Student Helper", "Me.Projects.Social Engaged Practice","Me.School.Undergraduate"] },
+                        { name: "AI Use", imports: ["Me.Tools.DeepSeek", "Me.Tools.Python","Me.School.Undergraduate"] },
+                        { name: "Electronic Connection", imports: ["Me.Tools.Arduino", "Me.Projects.Sustainable Arduino","Me.School.Associate Degree"] },
+                        { name: "Game Design", imports: ["Me.Tools.C#", "Me.Artwork.Art Game","Me.School.Undergraduate"] },
+                        { name: "Floor Plan Drawing", imports: ["Me.Tools.AutoCAD","Me.School.Associate Degree"] },
+                        { name: "Complex Maths", imports: ["Me.School.Associate Degree", "Me.Tools.C++"] }
                     ]
                 },
         {
@@ -152,19 +152,19 @@ const data = {
                          },
                         { name: "Crew Work", imports: ["Me.Skills.Public Speaking", "Me.Skills.Communication"] },
                         { name: "Freelance", imports: ["Me.Skills.Design", "Me.Skills.Writing", "Me.Tools.Figma"] },
-                        { name: "Student Helper", imports: ["Me.Skills.Leadership", "Me.School.Undergraduate (CityU)"]}
+                        { name: "Student Helper", imports: ["Me.Skills.Leadership", "Me.School.Undergraduate"]}
                     ]
                 },
         {
             name: "Tools",
             children: [
-                        { name: "Python", imports: ["Me.Skills.Data Analysis", "Me.Skills.AI Use","Me.School.Associate Degree (HKCC)"] },
-                        { name: "C++", imports: ["Me.School.Associate Degree (HKCC)", "Me.Skills.Programming","Me.School.Associate Degree (HKCC)"] },
-                        { name: "C#",  imports: ["Me.Artwork.Art Game", "Me.Skills.Game Design","Me.School.Undergraduate (CityU)"],},
-                        { name: "JavaScript", imports: ["Me.Projects.Personal Website", "Me.Projects.Creative Coding","Me.Tools. Processing","Me.School.Undergraduate (CityU)"] },
-                        { name: "Figma", imports: ["Me.Skills.UI/UX Design", "Me.Projects.Personal Website","Me.School.Undergraduate (CityU)"] },
-                        { name: "VS Code", imports: ["Me.Skills.Programming", "Me.Projects.Creative Coding","Me.School.Undergraduate (CityU)"] },
-                        { name: "GitHub", imports: ["Me.Skills.Programming", "Me.Projects.Personal Website","Me.School.Undergraduate (CityU)"] },
+                        { name: "Python", imports: ["Me.Skills.Data Analysis", "Me.Skills.AI Use","Me.School.Associate Degree"] },
+                        { name: "C++", imports: ["Me.School.Associate Degree", "Me.Skills.Programming","Me.School.Associate Degree"] },
+                        { name: "C#",  imports: ["Me.Artwork.Art Game", "Me.Skills.Game Design","Me.School.Undergraduate"],},
+                        { name: "JavaScript", imports: ["Me.Projects.Personal Website", "Me.Projects.Creative Coding","Me.Tools. Processing","Me.School.Undergraduate"] },
+                        { name: "Figma", imports: ["Me.Skills.UI/UX Design", "Me.Projects.Personal Website","Me.School.Undergraduate"] },
+                        { name: "VS Code", imports: ["Me.Skills.Programming", "Me.Projects.Creative Coding","Me.School.Undergraduate"] },
+                        { name: "GitHub", imports: ["Me.Skills.Programming", "Me.Projects.Personal Website","Me.School.Undergraduate"] },
                         { name: "After Effect", imports: ["Me.Artwork.Animation", "Me.Artwork.VFX"] },
                         { name: "LightRoom", imports: ["Me.Artwork.Photography", "Me.Artwork.B&W Photography"] },
                         { name: "Photoshop", imports: ["Me.Artwork.Digital Art", "Me.Skills.Design"] },
@@ -173,21 +173,21 @@ const data = {
                         { name: "CapCut", imports: ["Me.Hobbies.Photography"] }, 
                         { name: "Davinci Resolve", imports: ["Me.Experience.Video Company (MBP)", "Me.Artwork.VFX"] },
                         { name: "Illustration", imports: ["Me.Artwork.Illustration", "Me.Skills.Design"] },
-                        { name: "Arduino", imports: ["Me.Projects.Sustainable Arduino", "Me.Skills.Electronic Connection","Me.School.Undergraduate (CityU)"] },
+                        { name: "Arduino", imports: ["Me.Projects.Sustainable Arduino", "Me.Skills.Electronic Connection","Me.School.Undergraduate"] },
                         { name: "DeepSeek", imports: ["Me.Skills.AI Use", "Me.School.Online Course"] },
-                        { name: "AutoCAD", imports: ["Me.Skills.Floor Plan Drawing,","Me.School.Associate Degree (HKCC)"] },
-                        { name: "Processing", imports: ["Me.Artwork.Digital Art","Me.Projects.Creative Coding","Me.School.Undergraduate (CityU)"] }
+                        { name: "AutoCAD", imports: ["Me.Skills.Floor Plan Drawing,","Me.School.Associate Degree"] },
+                        { name: "Processing", imports: ["Me.Artwork.Digital Art","Me.Projects.Creative Coding","Me.School.Undergraduate"] }
             ]
         },
         {
                     name: "Projects",
                     children: [
-                        { name: "Social Engagement Exhibition", imports: ["Me.Skills.Project Management", "Me.Skills.Leadership", "Me.Skills.Communication"],
+                        { name: "Social Engaged Practice", imports: ["Me.Skills.Project Management", "Me.Skills.Leadership", "Me.Skills.Communication"],
                             details:{
                                 title:"QR Code",
                                 description:"The project, titled Participatory Art: QR Code Room, transformed a university computer lab (M7058) into an environment entirely saturated with QR codes. The core intervention was converting all traditional text—from signs to software messages—into unique QR codes, creating an atmosphere of overwhelming visual chaos. The primary objective was to critique the societal assumption that convenience always equals accessibility , forcing participants to reflect on the autonomy, transparency, and human connection lost due to technological reliance. Participants were empowered as co-creators, allowed to scan, create, and remove codes, thereby reconstructing the space into a collective commentary on the digital society.",
                                 image:"source/10.webp",
-                                relations:["Undergraduate (CityU)","Teamwork"],
+                                relations:["Undergraduate","Teamwork"],
 
                             }
                          },
@@ -196,16 +196,16 @@ const data = {
                                 title:"Vplant",
                                 description:"Technology's dominance has led to a critical public health issue where most users significantly exceed WHO-recommended screen time limits, fostering unhealthy habits. This is particularly alarming among youth, with teenagers averaging 8.5 hours of screen time daily. This consumption forces an untenable 8-hour device, 8-hour sleep, 8-hour school allocation, critically eliminating time necessary for social interaction, physical activity, and healthy development .",
                                 image:"source/17.webp",
-                                relations:["C++","Undergraduate (CityU)","Game Design","Leadership","Arduino","AI Use","Digital Art"],
+                                relations:["C++","Undergraduate","Game Design","Leadership","Arduino","AI Use","Digital Art"],
                                 link:"https://www.youtube.com/watch?v=LJIILJjTy7U"
                             }
                         },
-                        { name: "Creative Coding", imports: ["Me.Tools.JavaScript", "Me.School.Undergraduate (CityU)"],
+                        { name: "Creative Coding", imports: ["Me.Tools.JavaScript", "Me.School.Undergraduate"],
                             details:{
                                 title:"Super Torus",
                                 description:"This Torus Audio Reactive Visualizer is a Processing project dedicated to real-time audiovisual synthesis, treating the torus (a geometric shape) as a dynamic visual metaphor for sound. The visualizer is technically driven by audio input amplitude and frequency, which directly control the rotational speed of the torus—making the object spin faster with increasing musical intensity. Furthermore, the visualizer allows for user interaction to modify parameters like the color palette or geometric complexity in real-time, resulting in a unique, collaborative experience between the user, the code, and the music.",
                                 image:"source/16.webp",
-                                relations:["Programming","Java Script","Undergraduate (CityU)","Digital Art","Processing"],
+                                relations:["Programming","Java Script","Undergraduate","Digital Art","Processing"],
                                 link:"https://www.youtube.com/watch?v=O5mJh_4uLhA"
                             }
                         },
@@ -214,7 +214,7 @@ const data = {
                                 title:"Personal Website",
                                 description:"I am a Hong Kong-based creative media artist dedicated to the synthesis of technical logic and critical aesthetics. My practice is founded on an interdisciplinary approach, merging the analytical precision developed through my engineering background with the conceptual depth required for contemporary art. I explore media such as digital art, interactive physical computing, and narrative visualization to expose and critique the social impact of technology.",
                                 image:"source/15.webp",
-                                relations:["Programming","VS Code","Undergraduate (CityU)","GitHub","JavaScript","UI/UX Design","AI Use"],
+                                relations:["Programming","VS Code","Undergraduate","GitHub","JavaScript","UI/UX Design","AI Use"],
                                 link:"https://leunghungcheung.github.io/WEB/index.html"
                             }
                          },
@@ -223,7 +223,7 @@ const data = {
                                 title:"Apple & Orange",
                                 description: "A deceptively simple fruit-sorting game coded in C# and Unity. In 'Chromatic Sort,' apples appear orange and oranges glow red, forcing players to override visual instincts with critical logic. This project utilizes game mechanics to critique the phenomenon of blind conformity in the digital age.",
                                 image:"source/11.webp",
-                                relations:["Game","C#","Programming","Game Design", "Gaming","VS Code","Undergraduate (CityU)","Digital Art"],
+                                relations:["Game","C#","Programming","Game Design", "Gaming","VS Code","Undergraduate","Digital Art"],
                                 link:"https://play.unity.com/en/games/714d196c-3f93-4985-9f51-a8c85fc18a8b/apple-orange"
                             }
                          },
@@ -232,7 +232,7 @@ const data = {
                                 title:"Photo Series",
                                 description:"Inspired by the quiet, early morning commute, the theme explores the modern Hong Kong Sleep Deficit and digital dependence. The observation highlights a significant social issue: poor sleep health among Hongkongers. With approximately 85% of residents reporting they don't get enough sleep nightly (Xue, 2024), many rely on transportation time for crucial rest, while others remain fixed on their phones. The project will visually investigate this poor work-life balance and the quiet exhaustion found in the daily commute.",
                                 image:"source/13.webp",
-                                relations:["Photography","LightRoom","Undergraduate (CityU)"],
+                                relations:["Photography","LightRoom","Undergraduate"],
                                 link:"https://www.youtube.com/watch?v=nDTWFwrnCgM"
 
                             }
@@ -242,7 +242,7 @@ const data = {
         {
                     name: "Hobbies",
                     children: [
-                        { name: "Reading", imports: ["Me.School.Undergraduate (CityU)"],
+                        { name: "Reading", imports: ["Me.School.Undergraduate"],
                             details: { 
                                 title: "Reading", 
                                 description: "A fundamental practice accelerated during my time at CityU. Reading expands my intellectual view, providing me with foundational knowledge across various disciplines and sharpening my capacity for critical analysis of the world and contemporary media theory." 
